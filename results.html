@@ -1,0 +1,62 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>כמה דייקנו</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --ink:#15181d; --ink-2:#4b535d; --ink-3:#7b8590;
+  --rule:#e4e7eb; --fall:#b3261e; --fall-bg:#fdecea; --rise:#1b6b43;
+  --rise-bg:#e6f4ec; --accent:#1f5f8b; --accent-bg:#e9f2f8;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e1115; --card:#171b21; --ink:#e9edf1; --ink-2:#b2bbc5; --ink-3:#7d8794;
+    --rule:#262c34; --fall:#f2837a; --fall-bg:#2a1816; --rise:#6fc79a;
+    --rise-bg:#122619; --accent:#7ab8dd; --accent-bg:#13232d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 1rem 3.5rem;background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI","Noto Sans Hebrew",Arial,system-ui,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:38rem;margin:0 auto}
+header{padding:1.75rem 0 1rem}
+h1{margin:0 0 .2rem;font-size:1.5rem}
+.sub{margin:0;color:var(--ink-3);font-size:.9rem}
+.lead{margin:1rem 0 1.5rem;color:var(--ink-2);font-size:.95rem}
+.stock{background:var(--card);border:1px solid var(--rule);border-radius:12px;
+  padding:1.1rem 1.15rem;margin-bottom:1rem}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+  flex-wrap:wrap;margin-bottom:.15rem}
+.tk{font-size:1.25rem;font-weight:700}
+.px{font-size:1.15rem;font-weight:650;font-variant-numeric:tabular-nums}
+.fellline{color:var(--fall);font-weight:600;margin:0 0 .9rem;font-size:.95rem}
+.block{padding:.7rem .85rem;border-radius:9px;margin-bottom:.55rem}
+.past{background:var(--accent-bg)}
+.expect{background:var(--rise-bg)}
+.block .lbl{display:block;font-size:.75rem;letter-spacing:.03em;font-weight:700;
+  margin-bottom:.2rem}
+.past .lbl{color:var(--accent)} .expect .lbl{color:var(--rise)}
+.block p{margin:0;font-size:.93rem;color:var(--ink-2)}
+.warn{color:var(--fall);font-size:.86rem;margin:.5rem 0 0}
+.none{background:var(--card);border:1px solid var(--rule);border-radius:12px;
+  padding:1.5rem;text-align:center;color:var(--ink-2)}
+footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--rule);
+  color:var(--ink-3);font-size:.85rem;display:flex;flex-direction:column;gap:.5rem}
+footer a{color:var(--accent)}
+.sortbar{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.1rem}
+.sortbar .lbl{width:100%;font-size:.78rem;color:var(--ink-3);margin-bottom:.1rem}
+.sortbar button{font:inherit;font-size:.85rem;padding:.35rem .8rem;cursor:pointer;
+  background:var(--card);color:var(--ink-2);border:1px solid var(--rule);
+  border-radius:999px;transition:background .12s,color .12s}
+.sortbar button:hover{border-color:var(--accent)}
+.sortbar button[aria-pressed="true"]{background:var(--accent);color:#fff;
+  border-color:var(--accent);font-weight:600}
+.sortbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.sortbar button{transition:none}}
+.big{font-size:2.6rem;font-weight:700;line-height:1.1}.row{display:flex;justify-content:space-between;gap:.5rem;padding:.55rem 0;border-bottom:1px solid var(--rule);font-size:.93rem;align-items:baseline}.row:last-child{border-bottom:none}.tag{font-size:.78rem;font-weight:700;padding:.1rem .45rem;border-radius:5px}.hit{background:var(--rise-bg);color:var(--rise)}.miss{background:var(--fall-bg);color:var(--fall)}.pend{background:var(--accent-bg);color:var(--accent)}</style></head><body><div class="wrap">
+<header><h1>📊 כמה דייקנו</h1>
+<p class="sub">מאז <bdi>14/09/2026</bdi></p></header>
+<p class="lead">בכל יום אנחנו אומרים מראש לאן אנחנו מצפים שהמניה תחזור, ותוך כמה זמן. כאן בודקים אם זה קרה.</p>
+<div class="none">עוד אין תחזיות שהסתיימו.</div>
+<footer><a href="./">← לרשימה של היום</a></footer>
+</div></body></html>
