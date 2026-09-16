@@ -260,12 +260,17 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 /* The fill is positioned, not a plain block. As a block it was laid out by the
    inline flow and drifted away from the edge; absolute + inset-inline-start pins it
    to the START of the track, which under dir=rtl is the right-hand edge - the side a
-   Hebrew reader starts from. */
-.bar{position:relative;height:.55rem;border-radius:999px;background:var(--rule);
+   Hebrew reader starts from.
+
+   The class is `recbar`, NOT `bar`: build_simple_page.CSS already owns `.bar i` for the
+   daily page's 12px price-marker dot, and that rule carries transform:translateX(-50%)
+   and height:12px. Appending a same-name rule overrode the colour but inherited the
+   transform, which slid the fill half its own width off the edge - the bar appeared to
+   float mid-track. Renaming removes the collision instead of out-specifying it. */
+.recbar{position:relative;height:.55rem;border-radius:999px;background:var(--rule);
   overflow:hidden;margin:.5rem 0 .35rem}
-.bar i{position:absolute;top:0;bottom:0;inset-inline-start:0;
-  background:var(--rise);border-radius:999px}
-.bar.neg i{background:var(--fall)}
+.recbar i{position:absolute;top:0;bottom:0;inset-inline-start:0;
+  background:var(--rise);border-radius:999px;transform:none}
 .hd{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;
   flex-wrap:wrap;margin-bottom:.15rem}
 .hd b{font-size:1.15rem}
@@ -294,77 +299,77 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 <div class="sm">
 <div class="hd"><b><bdi>HOOD</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$110.45</bdi> · יעד מלא <bdi>$112.57</bdi> · יום <bdi>1</bdi> מתוך <bdi>7</bdi></p>
-<div class="bar"><i style="width:28%"></i></div>
+<div class="recbar"><i style="width:28%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>28%</bdi></span> מהירידה (<bdi>$111.05</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$110.98</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$111.51</bdi><em><bdi>+0.9%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$112.04</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$112.57</bdi><em><bdi>+1.9%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$110.47</bdi> <span class="dim">(פער של <bdi>+0.0%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.8%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$109.00</bdi>, כלומר <bdi>68%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$110.47</bdi> <span class="dim">(פער של <bdi>+0.0%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-2.9%</bdi></span>.</p>
+<p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$107.10</bdi>, כלומר <bdi>158%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>SMCI</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$35.64</bdi> · יעד מלא <bdi>$40.10</bdi> · יום <bdi>1</bdi> מתוך <bdi>6</bdi></p>
-<div class="bar"><i style="width:13%"></i></div>
-<p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>13%</bdi></span> מהירידה (<bdi>$36.23</bdi>)</p>
-<div class="rung n"><span class="mk">·</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$36.75</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">טרם</span></div>
+<div class="recbar"><i style="width:26%"></i></div>
+<p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>26%</bdi></span> מהירידה (<bdi>$36.81</bdi>)</p>
+<div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$36.75</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$37.87</bdi><em><bdi>+5.6%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$38.98</bdi><em><bdi>+8.7%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$40.10</bdi><em><bdi>+11.8%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$35.86</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.8%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$35.86</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+2.2%</bdi></span>.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>SNOW</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$322.98</bdi> · יעד מלא <bdi>$328.99</bdi> · יום <bdi>1</bdi> מתוך <bdi>11</bdi></p>
-<div class="bar"><i style="width:39%"></i></div>
-<p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>39%</bdi></span> מהירידה (<bdi>$325.32</bdi>)</p>
+<div class="recbar"><i style="width:65%"></i></div>
+<p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>65%</bdi></span> מהירידה (<bdi>$326.86</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$324.48</bdi><em><bdi>-0.1%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$325.99</bdi><em><bdi>+0.3%</bdi></em></span><span class="dy">טרם</span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$325.99</bdi><em><bdi>+0.3%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$327.49</bdi><em><bdi>+0.8%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$328.99</bdi><em><bdi>+1.3%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$324.89</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.1%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$324.89</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.3%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$317.45</bdi>, כלומר <bdi>92%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>AMAT</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$424.21</bdi> · יעד מלא <bdi>$454.01</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="bar"><i style="width:22%"></i></div>
+<div class="recbar"><i style="width:22%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>22%</bdi></span> מהירידה (<bdi>$430.74</bdi>)</p>
 <div class="rung n"><span class="mk">·</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$431.66</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$439.11</bdi><em><bdi>+2.2%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$446.56</bdi><em><bdi>+3.9%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$454.01</bdi><em><bdi>+5.6%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$429.85</bdi> <span class="dim">(פער של <bdi>+1.3%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.7%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$429.85</bdi> <span class="dim">(פער של <bdi>+1.3%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.8%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$416.76</bdi>, כלומר <bdi>25%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>ARM</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$239.01</bdi> · יעד מלא <bdi>$254.18</bdi> · יום <bdi>2</bdi> מתוך <bdi>12</bdi></p>
-<div class="bar"><i style="width:93%"></i></div>
+<div class="recbar"><i style="width:93%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>93%</bdi></span> מהירידה (<bdi>$253.15</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$242.80</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung y"><span class="mk">✓</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$246.59</bdi><em><bdi>+2.1%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung y"><span class="mk">✓</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$250.39</bdi><em><bdi>+3.6%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$254.18</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$241.62</bdi> <span class="dim">(פער של <bdi>+1.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+2.9%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$241.62</bdi> <span class="dim">(פער של <bdi>+1.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+3.6%</bdi></span>.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>FCX</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$69.34</bdi> · יעד מלא <bdi>$71.21</bdi> · יום <bdi>2</bdi> מתוך <bdi>8</bdi></p>
-<div class="bar"><i style="width:40%"></i></div>
+<div class="recbar"><i style="width:40%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>40%</bdi></span> מהירידה (<bdi>$70.09</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$69.81</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ ביום <bdi>2</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$70.27</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$70.74</bdi><em><bdi>+1.9%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$71.21</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$69.44</bdi> <span class="dim">(פער של <bdi>+0.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.7%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$69.44</bdi> <span class="dim">(פער של <bdi>+0.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.1%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$68.35</bdi>, כלומר <bdi>53%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>LRCX</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$273.49</bdi> · יעד מלא <bdi>$298.01</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="bar"><i style="width:21%"></i></div>
+<div class="recbar"><i style="width:21%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>21%</bdi></span> מהירידה (<bdi>$278.61</bdi>)</p>
 <div class="rung n"><span class="mk">·</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$279.62</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$285.75</bdi><em><bdi>+2.6%</bdi></em></span><span class="dy">טרם</span></div>
@@ -376,37 +381,37 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 <div class="sm">
 <div class="hd"><b><bdi>MU</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$924.03</bdi> · יעד מלא <bdi>$977.41</bdi> · יום <bdi>2</bdi> מתוך <bdi>5</bdi></p>
-<div class="bar"><i style="width:39%"></i></div>
+<div class="recbar"><i style="width:39%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>39%</bdi></span> מהירידה (<bdi>$944.94</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$937.38</bdi><em><bdi>-0.0%</bdi></em></span><span class="dy">✓ ביום <bdi>1</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$950.72</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$964.07</bdi><em><bdi>+2.8%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$977.41</bdi><em><bdi>+4.3%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$937.50</bdi> <span class="dim">(פער של <bdi>+1.5%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.8%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$937.50</bdi> <span class="dim">(פער של <bdi>+1.5%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-1.3%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$920.13</bdi>, כלומר <bdi>7%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>TER</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$329.20</bdi> · יעד מלא <bdi>$370.19</bdi> · יום <bdi>2</bdi> מתוך <bdi>8</bdi></p>
-<div class="bar"><i style="width:29%"></i></div>
+<div class="recbar"><i style="width:29%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>29%</bdi></span> מהירידה (<bdi>$341.00</bdi>)</p>
 <div class="rung y"><span class="mk">✓</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$339.45</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ ביום <bdi>2</bdi></span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$349.70</bdi><em><bdi>+3.5%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$359.94</bdi><em><bdi>+6.5%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$370.19</bdi><em><bdi>+9.6%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$337.83</bdi> <span class="dim">(פער של <bdi>+2.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.3%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$337.83</bdi> <span class="dim">(פער של <bdi>+2.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.5%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$326.37</bdi>, כלומר <bdi>7%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <div class="sm">
 <div class="hd"><b><bdi>WDC</bdi></b><span class="st s-pending">ממתין</span></div>
 <p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$426.94</bdi> · יעד מלא <bdi>$460.93</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="bar"><i style="width:10%"></i></div>
+<div class="recbar"><i style="width:10%"></i></div>
 <p class="line">הכי רחוק שהגיעה: <span class="up"><bdi>10%</bdi></span> מהירידה (<bdi>$430.25</bdi>)</p>
 <div class="rung n"><span class="mk">·</span><span class="lb">רבע מהירידה</span><span class="lv"><bdi>$435.44</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">חצי מהירידה</span><span class="lv"><bdi>$443.94</bdi><em><bdi>+3.2%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">שלושה רבעים</span><span class="lv"><bdi>$452.43</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">טרם</span></div>
 <div class="rung n"><span class="mk">·</span><span class="lb">כל הירידה</span><span class="lv"><bdi>$460.93</bdi><em><bdi>+7.1%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$430.25</bdi> <span class="dim">(פער של <bdi>+0.8%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-1.5%</bdi></span>.</p>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$430.25</bdi> <span class="dim">(פער של <bdi>+0.8%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-1.4%</bdi></span>.</p>
 <p class="line dim">בדרך היא ירדה עוד — בשפל היא הייתה <bdi>$407.12</bdi>, כלומר <bdi>58%</bdi> מתחת למחיר שממנו התחלנו לעקוב, ביחס לגודל הירידה המקורית.</p>
 </div>
 <p class="expl">אנחנו מציגים כאן כל תחזית שפרסמנו, כולל אלה שלא הצליחו ואלה שעדיין רצות. תחזית לא נעלמת מהדף כי היא לוקחת יותר מדי זמן. המחירים מותאמים לפיצולי מניות ולדיבידנדים, ולכן יכולים להיות שונים בכמה סנטים ממה שראיתם במסך המסחר.</p>
