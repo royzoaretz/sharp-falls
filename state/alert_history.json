@@ -1,0 +1,113 @@
+[
+ {
+  "date": "2026-09-14",
+  "ticker": "AMAT",
+  "price": 424.2099914550781,
+  "target": 454.01,
+  "days": 6,
+  "fell_pct": 7
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "ARM",
+  "price": 239.00999450683594,
+  "target": 254.18,
+  "days": 12,
+  "fell_pct": 6
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "FCX",
+  "price": 69.33999633789062,
+  "target": 71.21,
+  "days": 8,
+  "fell_pct": 3
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "LRCX",
+  "price": 273.489990234375,
+  "target": 298.01,
+  "days": 6,
+  "fell_pct": 8
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "MU",
+  "price": 924.030029296875,
+  "target": 977.41,
+  "days": 5,
+  "fell_pct": 5
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "TER",
+  "price": 329.20001220703125,
+  "target": 370.19,
+  "days": 8,
+  "fell_pct": 11
+ },
+ {
+  "date": "2026-09-14",
+  "ticker": "WDC",
+  "price": 426.94000244140625,
+  "target": 460.93,
+  "days": 6,
+  "fell_pct": 7
+ },
+ {
+  "date": "2026-09-15",
+  "ticker": "HOOD",
+  "price": 110.44999694824219,
+  "target": 112.57,
+  "days": 7,
+  "confidence": 85,
+  "fell_pct": 2,
+  "hist_pct": 94
+ },
+ {
+  "date": "2026-09-15",
+  "ticker": "SMCI",
+  "price": 35.63999938964844,
+  "target": 40.1,
+  "days": 6,
+  "confidence": 87,
+  "fell_pct": 11,
+  "hist_pct": 87
+ },
+ {
+  "date": "2026-09-15",
+  "ticker": "SNOW",
+  "price": 322.9800109863281,
+  "target": 328.99,
+  "days": 11,
+  "confidence": 79,
+  "fell_pct": 2,
+  "hist_pct": 84
+ },
+ {
+  "date": "2026-09-16",
+  "ticker": "FCX",
+  "price": 69.4000015258789,
+  "target": 69.34,
+  "days": 8
+ },
+ {
+  "date": "2026-09-16",
+  "ticker": "MU",
+  "price": 926.1699829101562,
+  "target": 924.03,
+  "days": 5
+ },
+ {
+  "date": "2026-09-16",
+  "ticker": "SRPT",
+  "price": 20.114999771118164,
+  "target": 20.92,
+  "days": 8,
+  "fell_pct": 4,
+  "hist_pct": 77,
+  "hist_n": 277,
+  "confidence": 92
+ }
+]
