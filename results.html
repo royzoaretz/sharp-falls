@@ -102,9 +102,10 @@ a.tklink:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tag b{font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums;
   line-height:1.15}
 .tag span{font-size:.7rem;color:var(--ink-3);letter-spacing:.02em}
-.tag.good{background:var(--rise-bg);border-color:transparent}
+/* No filled background on the recovery tag: it sits in a row of neutral tags and a
+   green or red block behind one of them reads as a verdict on the share rather than
+   as the base rate it is. The number keeps its colour; only the panel is dropped. */
 .tag.good b{color:var(--rise)}
-.tag.warnt{background:var(--fall-bg);border-color:transparent}
 .tag.warnt b{color:var(--fall)}
 .tag.key{background:var(--accent-bg);border-color:transparent}
 .tag.key b{color:var(--accent)}
@@ -171,7 +172,7 @@ a.tklink:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ladder .lh{padding:.45rem .8rem;font-size:.75rem;font-weight:700;
   color:var(--ink-3);letter-spacing:.03em;background:var(--card);
   border-bottom:1px solid var(--rule)}
-.lrow{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;
+.lrow{display:grid;grid-template-columns:1fr auto;gap:.5rem;align-items:center;
   padding:.4rem .8rem;font-size:.86rem;border-bottom:1px solid var(--rule)}
 .lrow:last-child{border-bottom:none}
 .lrow.full{background:var(--accent-bg);font-weight:600}
@@ -249,7 +250,9 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   align-items:center;justify-content:center;font-size:.82rem;font-weight:700}
 .rung.y .mk{background:var(--rise-bg);color:var(--rise)}
 .rung.n .mk{background:var(--bg);color:var(--ink-3);border:1px solid var(--rule)}
-.rung .lb{font-weight:600}
+.rung .lb{font-weight:600;display:flex;flex-direction:column;gap:.05rem}
+.rung .base{font-size:.7rem;font-weight:500;color:var(--ink-3);white-space:nowrap}
+.rung.y .base{color:var(--rise)}
 .rung .lv{color:var(--ink-3);font-variant-numeric:tabular-nums;font-size:.84rem;
   display:flex;gap:.4rem;align-items:baseline}
 .rung .lv em{font-style:normal;font-weight:700;color:var(--ink-2)}
@@ -267,6 +270,9 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .s-pending{background:var(--bg);color:var(--ink-3);border:1px solid var(--rule)}
 .line{font-size:.85rem;color:var(--ink-2);margin:.15rem 0}
 .dim{color:var(--ink-3);font-size:.8rem}
+footer{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--rule);
+  font-size:.85rem;display:flex;flex-direction:column;gap:.5rem}
+footer a{color:var(--accent)}
 .up{color:var(--rise);font-weight:700} .dn{color:var(--fall);font-weight:700}
 .warn{background:var(--fall-bg);color:var(--fall);font-size:.85rem;
   padding:.6rem .8rem;border-radius:9px;margin:0 0 1rem}
@@ -276,125 +282,232 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .tbl{width:100%;border-collapse:collapse;font-size:.88rem}
 .tbl td{padding:.4rem .2rem;border-bottom:1px solid var(--rule)}
 .tbl tr:last-child td{border-bottom:none}
+.plchip{font-size:.8rem;font-weight:700;padding:.15rem .55rem;border-radius:5px;
+  font-variant-numeric:tabular-nums;margin-inline-start:auto}
+.pl-up{background:var(--rise-bg);color:var(--rise)}
+.pl-dn{background:var(--fall-bg);color:var(--fall)}
+.agg{display:flex;align-items:center;gap:.6rem;padding:.3rem 0}
+.agg .al{font-size:.85rem;font-weight:600;min-width:5.5rem}
+.agg .ab{position:relative;flex:1;height:.5rem;border-radius:999px;
+  background:var(--rule);overflow:hidden}
+.agg .ab i{position:absolute;top:0;bottom:0;inset-inline-start:0;
+  background:var(--rise);border-radius:999px;transform:none}
+.agg .an{font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums;
+  min-width:3.6rem;text-align:left}
+.agg .an em{font-style:normal;font-weight:400;font-size:.72rem;
+  color:var(--ink-3);margin-inline-start:.3rem}
+.agg .ag{min-width:4.2rem;text-align:left;font-size:.85rem;
+  font-variant-numeric:tabular-nums;color:var(--rise);line-height:1.2}
+.agg .ag em{display:block;font-style:normal;font-weight:400;font-size:.68rem;
+  color:var(--ink-3)}
+.standing{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0 0}
+.standing div{flex:1;min-width:7rem;background:var(--bg);border:1px solid var(--rule);
+  border-radius:9px;padding:.5rem .7rem;text-align:center}
+.standing b{display:block;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.standing span{font-size:.72rem;color:var(--ink-3)}
+.standing .dn b{color:var(--fall)} .standing .up b{color:var(--rise)}
+.grp{font-size:.95rem;margin:1.6rem 0 .7rem;padding-top:1.1rem;
+  border-top:1px solid var(--rule);display:flex;align-items:baseline;gap:.5rem}
+.grp span{font-size:.75rem;font-weight:400;color:var(--ink-3);
+  background:var(--bg);border:1px solid var(--rule);border-radius:999px;
+  padding:.05rem .5rem}
+.sm.done{padding:0}
+.sm.done > summary{cursor:pointer;list-style:none;padding:.85rem 1.05rem;
+  display:block;border-radius:12px}
+.sm.done > summary::-webkit-details-marker{display:none}
+.sm.done > summary:hover{background:var(--bg)}
+.sm.done > summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.sm.done > summary .hd{margin:0}
+.sm.done > summary .hd b::after{content:" ▸";color:var(--ink-3);
+  font-size:.8em;font-weight:400}
+.sm.done[open] > summary .hd b::after{content:" ▾"}
+.sm.done[open] > summary{border-bottom:1px solid var(--rule);
+  border-radius:12px 12px 0 0}
+.sm.done > *:not(summary){padding-inline:1.05rem}
+.sm.done > *:last-child{padding-bottom:.9rem}
 .tbl .n{text-align:left;font-variant-numeric:tabular-nums;font-weight:700}
+.notrade{background:var(--bg);border:1px dashed var(--rule);border-radius:9px;
+  padding:.55rem .8rem;margin:.4rem 0 .6rem;font-size:.8rem;color:var(--ink-3)}
 .said{display:flex;flex-wrap:wrap;gap:.4rem;margin:.1rem 0 .7rem}
 .said span{font-size:.75rem;padding:.25rem .6rem;border-radius:7px;
   background:var(--bg);border:1px solid var(--rule);color:var(--ink-2)}
 .said b{font-variant-numeric:tabular-nums}
 .said .c{background:var(--accent-bg);border-color:transparent;color:var(--accent)}
+.said .none{color:var(--ink-3);border-style:dashed}
+.said .none em{font-style:normal;display:block;font-size:.68rem;opacity:.8}
 </style></head><body><div class="wrap">
 <header><h1>📊 איך הלך לנו</h1>
 <p class="sub">מאז <bdi>14/09/2026</bdi></p></header>
-<div class="expl"><b>איך קוראים את הדף הזה.</b> כשמניה נופלת, אנחנו אומרים מראש לאיזה מחיר אנחנו מצפים שהיא תחזור ותוך כמה ימים. אבל חזרה זה לא הכל־או־כלום: מניה יכולה להחזיר רבע מהירידה, חצי, שלושה רבעים, או את הכל. לכן אנחנו מודדים כל שלב בנפרד.<br><br><b>מתי שלב נחשב כ"הושג"?</b> אם המחיר נגע בו בשלב כלשהו במהלך היום — גם אם ירד חזרה עד הסגירה. זה בדיוק הרגע שבו פקודת מכירה שהשארתם שם הייתה מתבצעת. כלומר העמודה הזאת עונה ישירות על השאלה "אם הייתי שם יעד רווח בשלב הזה, הוא היה נתפס?"<br><br><b>מה האחוז שליד כל מחיר?</b> זה הרווח שהייתם עושים אם הייתם קונים בפתיחה של יום המסחר שאחרי שהמניה נכנסה לרשימה — כלומר במחיר הראשון שבאמת אפשר היה לקנות בו — ומוכרים בשלב הזה. חישבנו מהמחיר הזה ולא מהמחיר שהצגנו, כי בין הסגירה לפתיחה המחיר קופץ, והרווח האמיתי קטן יותר.</div>
-<p class="warn">עדיין אין סיכום. תחזית נכנסת לסיכום רק אחרי שנגמר לה הזמן שהקצבנו לה — גם אם היא כבר הגיעה ליעד. אחרת היינו סופרים את המנצחות מוקדם ואת המפסידות מאוחר, והמספר היה נראה טוב יותר ממה שהוא באמת. כרגע <bdi>10</bdi> תחזיות עדיין רצות — למטה אפשר לראות איפה כל אחת עומדת.</p>
-<div class="sm">
-<div class="hd"><b><bdi>HOOD</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$110.45</bdi> · יעד מלא <bdi>$112.57</bdi> · יום <bdi>1</bdi> מתוך <bdi>7</bdi></p>
-<div class="said"><span>ירדה <b><bdi>2%</bdi></b></span><span>בעבר חזרה <b><bdi>94%</bdi></b></span><span class="c">הערכת הביטחון שלנו: <b><bdi>85%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$110.98</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$111.51</bdi><em><bdi>+0.9%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$112.04</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$112.57</bdi><em><bdi>+1.9%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$110.47</bdi> <span class="dim">(פער של <bdi>+0.0%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-4.3%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$104.44</bdi> — <bdi>5.4%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
+<div class="expl"><b>איך קוראים את הדף הזה.</b> כשמניה נופלת, אנחנו אומרים מראש לאיזה מחיר אנחנו מצפים שהיא תחזור ותוך כמה ימים. אבל חזרה זה לא הכל־או־כלום: מניה יכולה להחזיר רבע מהירידה, חצי, שלושה רבעים, או את הכל. לכן אנחנו מודדים כל שלב בנפרד.<br><br><b>מתי שלב נחשב כ"הושג"?</b> אם המחיר נגע בו בשלב כלשהו במהלך היום — גם אם ירד חזרה עד הסגירה. זה בדיוק הרגע שבו פקודת מכירה שהשארתם שם הייתה מתבצעת. כלומר העמודה הזאת עונה ישירות על השאלה "אם הייתי שם יעד רווח בשלב הזה, הוא היה נתפס?"<br><br><b>מה האחוז שליד כל מחיר?</b> זה הרווח שהייתם עושים אם הייתם קונים בפתיחה של יום המסחר שאחרי שהמניה נכנסה לרשימה — כלומר במחיר הראשון שבאמת אפשר היה לקנות בו — ומוכרים בשלב הזה. חישבנו מהמחיר הזה ולא מהמחיר שהצגנו, כי בין הסגירה לפתיחה המחיר קופץ, והרווח האמיתי קטן יותר.<br><br><b>ומה זה "בעבר X%"?</b> מתחת לכל יעד רשום באיזה אחוז מהפעמים שהמניה הזאת ירדה ככה בעבר היא הגיעה ליעד הזה, וכמה ימים זה לקח לה בדרך כלל. זה המספר שלפיו קבענו את היעד מלכתחילה — ולכן הוא גם מה שאפשר לשפוט אותנו לפיו. חשוב לדעת: הסטטיסטיקה הזאת מבוססת רק על חברות שקיימות היום, אז המספרים האמיתיים קצת נמוכים יותר.</div>
+<div class="sm"><b>סיכום התחזיות שנגמר להן הזמן</b><table class="tbl">
+<tr><td>יעד ראשון <span class="dim">· בדרך כלל תוך <bdi>3</bdi> ימים</span></td><td class="n"><bdi>5</bdi>/<bdi>5</bdi></td></tr>
+<tr><td>יעד שני <span class="dim">· בדרך כלל תוך <bdi>4</bdi> ימים</span></td><td class="n"><bdi>5</bdi>/<bdi>5</bdi></td></tr>
+<tr><td>יעד שלישי <span class="dim">· בדרך כלל תוך <bdi>5</bdi> ימים</span></td><td class="n"><bdi>5</bdi>/<bdi>5</bdi></td></tr>
+<tr><td>יעד רביעי <span class="dim">· בדרך כלל תוך <bdi>5</bdi> ימים</span></td><td class="n"><bdi>5</bdi>/<bdi>5</bdi></td></tr>
+</table>
+</div>
+<p class="warn">שימו לב: רק <bdi>5</bdi> תחזיות הסתיימו עד כה. זה מדגם קטן מדי כדי להסיק ממנו מסקנות — המספרים האלה יזוזו הרבה.</p>
+<div class="sm"><b>איפה הכל עומד כרגע</b>
+<p class="line dim" style="margin:.2rem 0 .6rem">מתוך <bdi>11</bdi> התחזיות שאפשר היה לסחור בהן — כמה מהן כבר נגעו בכל יעד, ולו לרגע אחד במהלך המסחר, וכמה הרוויחה עסקה כזאת בממוצע.</p>
+<div class="agg"><span class="al">יעד ראשון</span><span class="ab"><i style="width:100%"></i></span><span class="an"><bdi>100%</bdi><em><bdi>11/11</bdi></em></span><span class="ag"><b><bdi>+0.8%</bdi></b><em>לעסקה</em></span></div>
+<div class="agg"><span class="al">יעד שני</span><span class="ab"><i style="width:100%"></i></span><span class="an"><bdi>100%</bdi><em><bdi>11/11</bdi></em></span><span class="ag"><b><bdi>+2.4%</bdi></b><em>לעסקה</em></span></div>
+<div class="agg"><span class="al">יעד שלישי</span><span class="ab"><i style="width:100%"></i></span><span class="an"><bdi>100%</bdi><em><bdi>11/11</bdi></em></span><span class="ag"><b><bdi>+4.0%</bdi></b><em>לעסקה</em></span></div>
+<div class="agg"><span class="al">יעד רביעי</span><span class="ab"><i style="width:100%"></i></span><span class="an"><bdi>100%</bdi><em><bdi>11/11</bdi></em></span><span class="ag"><b><bdi>+5.6%</bdi></b><em>לעסקה</em></span></div>
+<p class="line" style="margin:.7rem 0 0">המספר הירוק הוא הרווח בעסקה בודדת — כמה הרוויחה בממוצע מניה שהגיעה ליעד הזה ונמכרה בו.</p>
+<p class="line dim"><bdi>6</bdi> תחזיות לא נכללות כאן: המניה נפתחה כבר מעל היעד המלא, כלומר כל החזרה קרתה בלילה לפני שאפשר היה לקנות, ולא היה שם מה להרוויח.</p>
+<p class="line dim" style="margin:.25rem 0 0">אלה תחזיות שעדיין רצות, אז זאת התקדמות ולא תוצאה סופית.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>SMCI</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$35.64</bdi> · יעד מלא <bdi>$40.10</bdi> · יום <bdi>1</bdi> מתוך <bdi>6</bdi></p>
-<div class="said"><span>ירדה <b><bdi>11%</bdi></b></span><span>בעבר חזרה <b><bdi>87%</bdi></b></span><span class="c">הערכת הביטחון שלנו: <b><bdi>87%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$36.75</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:35</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$37.87</bdi><em><bdi>+5.6%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$38.98</bdi><em><bdi>+8.7%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$40.10</bdi><em><bdi>+11.8%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$35.86</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+2.4%</bdi></span>.</p>
+<div class="hd"><b><bdi>ABNB</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$149.58</bdi> · יעד מלא <bdi>$166.22</bdi> · <bdi>29</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>SNOW</bdi></b><span class="st s-hit">חזרה במלואה</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$322.98</bdi> · יעד מלא <bdi>$328.99</bdi> · יום <bdi>1</bdi> מתוך <bdi>11</bdi></p>
-<div class="said"><span>ירדה <b><bdi>2%</bdi></b></span><span>בעבר חזרה <b><bdi>84%</bdi></b></span><span class="c">הערכת הביטחון שלנו: <b><bdi>79%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$324.48</bdi><em><bdi>+2.0%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני</span><span class="lv"><bdi>$325.99</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$327.49</bdi><em><bdi>+2.9%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:35</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$328.99</bdi><em><bdi>+3.4%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:40</bdi></span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$318.14</bdi> <span class="dim">(פער של <bdi>-1.5%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+4.8%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$317.45</bdi> — <bdi>1.7%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
+<div class="hd"><b><bdi>AFRM</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$68.09</bdi> · יעד מלא <bdi>$71.21</bdi> · <bdi>7</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>AMAT</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$424.21</bdi> · יעד מלא <bdi>$454.01</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="said"><span>ירדה <b><bdi>7%</bdi></b></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$431.66</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$439.11</bdi><em><bdi>+2.2%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$446.56</bdi><em><bdi>+3.9%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$454.01</bdi><em><bdi>+5.6%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$429.85</bdi> <span class="dim">(פער של <bdi>+1.3%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-2.2%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$416.76</bdi> — <bdi>1.8%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
+<div class="hd"><b><bdi>BBY</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$90.80</bdi> · יעד מלא <bdi>$92.85</bdi> · <bdi>6</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>ARM</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$239.01</bdi> · יעד מלא <bdi>$254.18</bdi> · יום <bdi>2</bdi> מתוך <bdi>12</bdi></p>
-<div class="said"><span>ירדה <b><bdi>6%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$242.80</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:30</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני</span><span class="lv"><bdi>$246.59</bdi><em><bdi>+2.1%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:45</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$250.39</bdi><em><bdi>+3.6%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:50</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$254.18</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$241.62</bdi> <span class="dim">(פער של <bdi>+1.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+2.3%</bdi></span>.</p>
+<div class="hd"><b><bdi>GOLD</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$43.48</bdi> · יעד מלא <bdi>$45.46</bdi> · <bdi>8</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>FCX</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$69.34</bdi> · יעד מלא <bdi>$71.21</bdi> · יום <bdi>2</bdi> מתוך <bdi>8</bdi></p>
-<div class="said"><span>ירדה <b><bdi>3%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$69.81</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני</span><span class="lv"><bdi>$70.27</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">✓ <bdi>16/09 11:10</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$70.74</bdi><em><bdi>+1.9%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$71.21</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$69.44</bdi> <span class="dim">(פער של <bdi>+0.1%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+0.2%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$68.35</bdi> — <bdi>1.4%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
+<div class="hd"><b><bdi>HPQ</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$32.16</bdi> · יעד מלא <bdi>$34.40</bdi> · <bdi>10</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
 <div class="sm">
-<div class="hd"><b><bdi>LRCX</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$273.49</bdi> · יעד מלא <bdi>$298.01</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="said"><span>ירדה <b><bdi>8%</bdi></b></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$279.62</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$285.75</bdi><em><bdi>+2.6%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$291.88</bdi><em><bdi>+4.8%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$298.01</bdi><em><bdi>+7.0%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$278.61</bdi> <span class="dim">(פער של <bdi>+1.9%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-2.4%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$265.37</bdi> — <bdi>3.0%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
+<div class="hd"><b><bdi>VLO</bdi></b><span class="st s-pending">טרם נפתח</span></div>
+<p class="line dim">התחלנו לעקוב ב-<bdi>23/09</bdi> ממחיר <bdi>$375.84</bdi> · יעד מלא <bdi>$413.28</bdi> · <bdi>8</bdi> ימי מסחר</p>
+<p class="notrade">התחזית פורסמה בסגירה של יום שישי. המחיר הראשון שאפשר לקנות בו הוא הפתיחה של יום שני, ולכן עוד אין מה למדוד. הכרטיס הזה יתמלא ביום שלישי.</p>
 </div>
-<div class="sm">
-<div class="hd"><b><bdi>MU</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$924.03</bdi> · יעד מלא <bdi>$977.41</bdi> · יום <bdi>2</bdi> מתוך <bdi>5</bdi></p>
-<div class="said"><span>ירדה <b><bdi>5%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$937.38</bdi><em><bdi>-0.0%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:30</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$950.72</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$964.07</bdi><em><bdi>+2.8%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$977.41</bdi><em><bdi>+4.3%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$937.50</bdi> <span class="dim">(פער של <bdi>+1.5%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-0.7%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$920.13</bdi> — <bdi>0.4%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
-</div>
-<div class="sm">
-<div class="hd"><b><bdi>TER</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$329.20</bdi> · יעד מלא <bdi>$370.19</bdi> · יום <bdi>2</bdi> מתוך <bdi>8</bdi></p>
-<div class="said"><span>ירדה <b><bdi>11%</bdi></b></span></div>
-<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$339.45</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$349.70</bdi><em><bdi>+3.5%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$359.94</bdi><em><bdi>+6.5%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$370.19</bdi><em><bdi>+9.6%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$337.83</bdi> <span class="dim">(פער של <bdi>+2.6%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="up"><bdi>+2.6%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$326.37</bdi> — <bdi>0.9%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
-</div>
-<div class="sm">
-<div class="hd"><b><bdi>WDC</bdi></b><span class="st s-pending">ממתין</span></div>
-<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$426.94</bdi> · יעד מלא <bdi>$460.93</bdi> · יום <bdi>2</bdi> מתוך <bdi>6</bdi></p>
-<div class="said"><span>ירדה <b><bdi>7%</bdi></b></span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד ראשון</span><span class="lv"><bdi>$435.44</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שני</span><span class="lv"><bdi>$443.94</bdi><em><bdi>+3.2%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד שלישי</span><span class="lv"><bdi>$452.43</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">טרם</span></div>
-<div class="rung n"><span class="mk">·</span><span class="lb">יעד רביעי</span><span class="lv"><bdi>$460.93</bdi><em><bdi>+7.1%</bdi></em></span><span class="dy">טרם</span></div>
-<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$430.25</bdi> <span class="dim">(פער של <bdi>+0.8%</bdi> מהמחיר שהצגנו)</span>, ונמצא כרגע <span class="dn"><bdi>-1.0%</bdi></span>.</p>
-<p class="line dim">בדרך היא ירדה עוד: בשפל היא הייתה <bdi>$407.12</bdi> — <bdi>4.6%</bdi> מתחת למחיר שממנו התחלנו לעקוב.</p>
-</div>
-<p class="expl">אנחנו מציגים כאן כל תחזית שפרסמנו, כולל אלה שלא הצליחו ואלה שעדיין רצות. תחזית לא נעלמת מהדף כי היא לוקחת יותר מדי זמן. המחירים מותאמים לפיצולי מניות ולדיבידנדים, ולכן יכולים להיות שונים בכמה סנטים ממה שראיתם במסך המסחר.</p>
-<footer><a href="./">← לרשימה של היום</a></footer>
+<h2 class="grp">הסתיימו בהצלחה — חזרו במלואן <span><bdi>11</bdi></span></h2>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>SRPT</bdi></b><span class="plchip pl-dn"><bdi>-6.3%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>16/09</bdi> ממחיר <bdi>$20.11</bdi> · יעד מלא <bdi>$20.92</bdi> · יום <bdi>5</bdi> מתוך <bdi>8</bdi></p>
+<div class="said"><span>ירדה <b><bdi>4%</bdi></b> ביומיים</span><span class="c">הערכת הביטחון שלנו: <b><bdi>92%</bdi></b></span></div>
+<div class="tags"><div class="tag good"><b><bdi>39%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>277</bdi></b><span>מקרים ב-11.7 שנים</span></div><div class="tag "><b><bdi>8</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>63%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$20.32</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:45</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>55%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$20.52</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:45</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>45%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$20.72</bdi><em><bdi>+2.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 10:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>39%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$20.92</bdi><em><bdi>+3.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 14:55</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$20.23</bdi> <span class="dim">(פער של <bdi>+0.6%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$18.95</bdi> — הפסד של <span class="dn"><bdi>6.3%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>HOOD</bdi></b><span class="plchip pl-up"><bdi>+11.3%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$110.45</bdi> · יעד מלא <bdi>$112.57</bdi> · יום <bdi>6</bdi> מתוך <bdi>7</bdi></p>
+<div class="said"><span>ירדה <b><bdi>2%</bdi></b> ביומיים</span><span class="c">הערכת הביטחון שלנו: <b><bdi>85%</bdi></b></span></div>
+<div class="tags"><div class="tag good"><b><bdi>47%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>121</bdi></b><span>מקרים ב-3 שנים</span></div><div class="tag "><b><bdi>7</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>68%</bdi> · <bdi>7</bdi> ימים</span></span><span class="lv"><bdi>$110.98</bdi><em><bdi>+0.6%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>60%</bdi> · <bdi>7</bdi> ימים</span></span><span class="lv"><bdi>$111.51</bdi><em><bdi>+1.1%</bdi></em></span><span class="dy">✓ <bdi>18/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>53%</bdi> · <bdi>7</bdi> ימים</span></span><span class="lv"><bdi>$112.04</bdi><em><bdi>+1.6%</bdi></em></span><span class="dy">✓ <bdi>18/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>47%</bdi> · <bdi>7</bdi> ימים</span></span><span class="lv"><bdi>$112.57</bdi><em><bdi>+2.1%</bdi></em></span><span class="dy">✓ <bdi>18/09 09:30</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$110.27</bdi> <span class="dim">(פער של <bdi>-0.2%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$122.70</bdi> — רווח של <span class="up"><bdi>11.3%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>SMCI</bdi></b><span class="plchip pl-up"><bdi>+15.3%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$35.64</bdi> · יעד מלא <bdi>$40.10</bdi> · יום <bdi>6</bdi> מתוך <bdi>6</bdi></p>
+<div class="said"><span>ירדה <b><bdi>11%</bdi></b> ביומיים</span><span class="c">הערכת הביטחון שלנו: <b><bdi>87%</bdi></b></span></div>
+<div class="tags"><div class="tag good"><b><bdi>48%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>245</bdi></b><span>מקרים ב-12.7 שנים</span></div><div class="tag "><b><bdi>6</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>72%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$36.75</bdi><em><bdi>+2.2%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:35</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>64%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$37.87</bdi><em><bdi>+5.3%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>54%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$38.98</bdi><em><bdi>+8.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:50</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>48%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$40.10</bdi><em><bdi>+11.5%</bdi></em></span><span class="dy">✓ <bdi>17/09 10:35</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$35.95</bdi> <span class="dim">(פער של <bdi>+0.9%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$41.44</bdi> — רווח של <span class="up"><bdi>15.3%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>SNOW</bdi></b><span class="plchip pl-up"><bdi>+5.2%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>15/09</bdi> ממחיר <bdi>$322.98</bdi> · יעד מלא <bdi>$328.99</bdi> · יום <bdi>6</bdi> מתוך <bdi>11</bdi></p>
+<div class="said"><span>ירדה <b><bdi>2%</bdi></b> ביומיים</span><span class="c">הערכת הביטחון שלנו: <b><bdi>79%</bdi></b></span></div>
+<div class="tags"><div class="tag good"><b><bdi>42%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>69</bdi></b><span>מקרים ב-4.4 שנים</span></div><div class="tag "><b><bdi>11</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>70%</bdi> · <bdi>11</bdi> ימים</span></span><span class="lv"><bdi>$324.48</bdi><em><bdi>+2.0%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>57%</bdi> · <bdi>11</bdi> ימים</span></span><span class="lv"><bdi>$325.99</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>49%</bdi> · <bdi>11</bdi> ימים</span></span><span class="lv"><bdi>$327.49</bdi><em><bdi>+2.9%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:35</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>42%</bdi> · <bdi>11</bdi> ימים</span></span><span class="lv"><bdi>$328.99</bdi><em><bdi>+3.4%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:40</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$318.14</bdi> <span class="dim">(פער של <bdi>-1.5%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$334.81</bdi> — רווח של <span class="up"><bdi>5.2%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>AMAT</bdi></b><span class="plchip pl-up"><bdi>+10.4%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$424.21</bdi> · יעד מלא <bdi>$454.01</bdi> · יום <bdi>6</bdi> מתוך <bdi>6</bdi></p>
+<div class="said"><span>ירדה <b><bdi>7%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>46%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>111</bdi></b><span>מקרים ב-12.4 שנים</span></div><div class="tag "><b><bdi>6</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>73%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$431.66</bdi><em><bdi>+0.4%</bdi></em></span><span class="dy">✓ <bdi>18/09 10:15</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>62%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$439.11</bdi><em><bdi>+2.2%</bdi></em></span><span class="dy">✓ <bdi>18/09 15:50</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>55%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$446.56</bdi><em><bdi>+3.9%</bdi></em></span><span class="dy">✓ <bdi>21/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>46%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$454.01</bdi><em><bdi>+5.6%</bdi></em></span><span class="dy">✓ <bdi>21/09 09:30</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$429.85</bdi> <span class="dim">(פער של <bdi>+1.3%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$474.38</bdi> — רווח של <span class="up"><bdi>10.4%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>ARM</bdi></b><span class="plchip pl-up"><bdi>+37.6%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$239.01</bdi> · יעד מלא <bdi>$254.18</bdi> · יום <bdi>7</bdi> מתוך <bdi>12</bdi></p>
+<div class="said"><span>ירדה <b><bdi>6%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>49%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>51</bdi></b><span>מקרים ב-1.3 שנים</span></div><div class="tag "><b><bdi>12</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>71%</bdi> · <bdi>12</bdi> ימים</span></span><span class="lv"><bdi>$242.80</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>67%</bdi> · <bdi>12</bdi> ימים</span></span><span class="lv"><bdi>$246.59</bdi><em><bdi>+2.1%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:45</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>53%</bdi> · <bdi>12</bdi> ימים</span></span><span class="lv"><bdi>$250.39</bdi><em><bdi>+3.6%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:50</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>49%</bdi> · <bdi>12</bdi> ימים</span></span><span class="lv"><bdi>$254.18</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$241.62</bdi> <span class="dim">(פער של <bdi>+1.1%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$332.56</bdi> — רווח של <span class="up"><bdi>37.6%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>FCX</bdi></b><span class="plchip pl-up"><bdi>+4.5%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$69.34</bdi> · יעד מלא <bdi>$71.21</bdi> · יום <bdi>7</bdi> מתוך <bdi>8</bdi></p>
+<div class="said"><span>ירדה <b><bdi>3%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>45%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>186</bdi></b><span>מקרים ב-13.4 שנים</span></div><div class="tag "><b><bdi>8</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>73%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$69.81</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>65%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$70.27</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">✓ <bdi>16/09 11:10</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>56%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$70.74</bdi><em><bdi>+1.9%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>45%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$71.21</bdi><em><bdi>+2.5%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$69.44</bdi> <span class="dim">(פער של <bdi>+0.1%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$72.58</bdi> — רווח של <span class="up"><bdi>4.5%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>LRCX</bdi></b><span class="plchip pl-up"><bdi>+10.4%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$273.49</bdi> · יעד מלא <bdi>$298.01</bdi> · יום <bdi>6</bdi> מתוך <bdi>6</bdi></p>
+<div class="said"><span>ירדה <b><bdi>8%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>48%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>113</bdi></b><span>מקרים ב-13.1 שנים</span></div><div class="tag "><b><bdi>6</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>75%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$279.62</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>65%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$285.75</bdi><em><bdi>+2.7%</bdi></em></span><span class="dy">✓ <bdi>18/09 15:50</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>58%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$291.88</bdi><em><bdi>+4.9%</bdi></em></span><span class="dy">✓ <bdi>21/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>48%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$298.01</bdi><em><bdi>+7.1%</bdi></em></span><span class="dy">✓ <bdi>21/09 11:05</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$278.31</bdi> <span class="dim">(פער של <bdi>+1.8%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$307.28</bdi> — רווח של <span class="up"><bdi>10.4%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>MU</bdi></b><span class="plchip pl-up"><bdi>+14.3%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$924.03</bdi> · יעד מלא <bdi>$977.41</bdi> · יום <bdi>5</bdi> מתוך <bdi>5</bdi></p>
+<div class="said"><span>ירדה <b><bdi>5%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>47%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>227</bdi></b><span>מקרים ב-13.1 שנים</span></div><div class="tag "><b><bdi>5</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>76%</bdi> · <bdi>5</bdi> ימים</span></span><span class="lv"><bdi>$937.38</bdi><em><bdi>+0.0%</bdi></em></span><span class="dy">✓ <bdi>15/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>64%</bdi> · <bdi>5</bdi> ימים</span></span><span class="lv"><bdi>$950.72</bdi><em><bdi>+1.4%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>53%</bdi> · <bdi>5</bdi> ימים</span></span><span class="lv"><bdi>$964.07</bdi><em><bdi>+2.8%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>47%</bdi> · <bdi>5</bdi> ימים</span></span><span class="lv"><bdi>$977.41</bdi><em><bdi>+4.3%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:35</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$937.50</bdi> <span class="dim">(פער של <bdi>+1.5%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$1,071.88</bdi> — רווח של <span class="up"><bdi>14.3%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>TER</bdi></b><span class="plchip pl-up"><bdi>+15.2%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$329.20</bdi> · יעד מלא <bdi>$370.19</bdi> · יום <bdi>7</bdi> מתוך <bdi>8</bdi></p>
+<div class="said"><span>ירדה <b><bdi>11%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>49%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>98</bdi></b><span>מקרים ב-13 שנים</span></div><div class="tag "><b><bdi>8</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>80%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$339.45</bdi><em><bdi>+0.5%</bdi></em></span><span class="dy">✓ <bdi>16/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>68%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$349.70</bdi><em><bdi>+3.5%</bdi></em></span><span class="dy">✓ <bdi>17/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>60%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$359.94</bdi><em><bdi>+6.5%</bdi></em></span><span class="dy">✓ <bdi>17/09 12:00</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>49%</bdi> · <bdi>8</bdi> ימים</span></span><span class="lv"><bdi>$370.19</bdi><em><bdi>+9.6%</bdi></em></span><span class="dy">✓ <bdi>18/09 15:55</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$337.83</bdi> <span class="dim">(פער של <bdi>+2.6%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$389.14</bdi> — רווח של <span class="up"><bdi>15.2%</bdi></span>.</p>
+</details>
+<details class="sm done">
+<summary><div class="hd"><b><bdi>WDC</bdi></b><span class="plchip pl-up"><bdi>+10.1%</bdi></span><span class="st s-hit">חזרה במלואה</span></div></summary>
+<p class="line dim">התחלנו לעקוב ב-<bdi>14/09</bdi> ממחיר <bdi>$426.94</bdi> · יעד מלא <bdi>$460.93</bdi> · יום <bdi>6</bdi> מתוך <bdi>6</bdi></p>
+<div class="said"><span>ירדה <b><bdi>7%</bdi></b> ביומיים</span><span class="none">לא נרשמה הערכת ביטחון<em>התחזית הזאת פורסמה לפני שהוספנו את הניתוח האוטומטי</em></span></div>
+<div class="tags"><div class="tag good"><b><bdi>46%</bdi></b><span>חזרו למחיר</span></div><div class="tag "><b><bdi>149</bdi></b><span>מקרים ב-13.2 שנים</span></div><div class="tag "><b><bdi>6</bdi></b><span>ימי מסחר</span></div></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד ראשון<span class="base">בעבר <bdi>76%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$435.44</bdi><em><bdi>+1.2%</bdi></em></span><span class="dy">✓ <bdi>18/09 09:35</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שני<span class="base">בעבר <bdi>64%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$443.94</bdi><em><bdi>+3.2%</bdi></em></span><span class="dy">✓ <bdi>18/09 15:50</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד שלישי<span class="base">בעבר <bdi>54%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$452.43</bdi><em><bdi>+5.2%</bdi></em></span><span class="dy">✓ <bdi>21/09 09:30</bdi></span></div>
+<div class="rung y"><span class="mk">✓</span><span class="lb">יעד רביעי<span class="base">בעבר <bdi>46%</bdi> · <bdi>6</bdi> ימים</span></span><span class="lv"><bdi>$460.93</bdi><em><bdi>+7.1%</bdi></em></span><span class="dy">✓ <bdi>22/09 09:45</bdi></span></div>
+<p class="line" style="margin-top:.6rem">מי שקנה בפתיחה למחרת שילם <bdi>$430.25</bdi> <span class="dim">(פער של <bdi>+0.8%</bdi> מהמחיר שהצגנו)</span>. כעת המניה ב-<bdi>$473.69</bdi> — רווח של <span class="up"><bdi>10.1%</bdi></span>.</p>
+</details>
+<p class="expl">אנחנו מציגים כאן כל תחזית שפרסמנו, כולל אלה שלא הצליחו ואלה שעדיין רצות. תחזית לא נעלמת מהדף כי היא לוקחת יותר מדי זמן. המחירים מותאמים לפיצולי מניות ולדיבידנדים, ולכן יכולים להיות שונים בכמה סנטים ממה שראיתם במסך המסחר.</p><footer><a href="./">← לרשימה של היום</a><a href="./matrix.html">כל מניה מול כל יעד — מה היה יוצא מזה</a></footer>
 </div></body></html>

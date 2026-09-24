@@ -1,0 +1,274 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>אם היינו קונים כל מניה בפתיחה</title>
+<style>
+:root{--ground:#f5f7f9;--surface:#ffffff;--sunk:#eef2f5;
+  --ink:#131820;--ink-2:#4a5560;--ink-3:#78848f;--rule:#dde3e9;
+  --win:#15704a;--win-bg:#e4f2ea;--loss:#b0271f;--loss-bg:#fbe9e7;
+  --open:#8a6d1f;--open-bg:#f7f0dc;--accent:#1f5f8b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0f1319;--surface:#171d25;--sunk:#131920;
+  --ink:#e8edf2;--ink-2:#aeb9c4;--ink-3:#7b8792;--rule:#28313b;
+  --win:#5cc08d;--win-bg:#11291e;--loss:#f0857c;--loss-bg:#2c1614;
+  --open:#d8b752;--open-bg:#2a2313;--accent:#79b6da}}
+:root[data-theme="dark"]{--ground:#0f1319;--surface:#171d25;--sunk:#131920;
+  --ink:#e8edf2;--ink-2:#aeb9c4;--ink-3:#7b8792;--rule:#28313b;
+  --win:#5cc08d;--win-bg:#11291e;--loss:#f0857c;--loss-bg:#2c1614;
+  --open:#d8b752;--open-bg:#2a2313;--accent:#79b6da}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);direction:rtl;
+  font-family:"Segoe UI","Noto Sans Hebrew",system-ui,Arial,sans-serif;
+  font-size:16px;line-height:1.55;padding:0 1rem 4rem}
+.wrap{max-width:60rem;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem}
+header.top{padding:2rem 0 .25rem}
+h1{font-size:1.55rem;margin:0 0 .3rem;text-wrap:balance}
+.lede{margin:0;color:var(--ink-2);max-width:42rem}
+.stamp{margin-top:1rem;font-size:.82rem;color:var(--ink-3);
+  font-family:ui-monospace,Consolas,monospace}
+.verdict{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:1.1rem 1.2rem;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;
+  align-items:center}
+.verdict .big{font-size:3rem;font-weight:700;line-height:1;color:var(--open)}
+.verdict p{margin:0;color:var(--ink-2);font-size:.92rem}
+.verdict b{color:var(--ink)}
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);
+  border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:38rem}
+caption{text-align:right;padding:.9rem 1rem .1rem;font-weight:700}
+caption span{display:block;font-weight:400;font-size:.85rem;color:var(--ink-2)}
+thead th{font-size:.78rem;color:var(--ink-2);font-weight:600;padding:.7rem .5rem;
+  border-bottom:1px solid var(--rule);text-align:center;white-space:nowrap}
+thead th small{display:block;font-weight:400;color:var(--ink-3);font-size:.9em}
+tbody th{text-align:right;padding:.5rem .8rem;border-bottom:1px solid var(--rule);
+  white-space:nowrap;font-weight:600}
+.tk{font-family:ui-monospace,Consolas,monospace;font-size:1rem}
+tbody th .sub{display:block;font-weight:400;font-size:.72rem;color:var(--ink-3);
+  font-family:ui-monospace,Consolas,monospace}
+.nt{display:inline-block;margin-inline-start:.4rem;font-size:.65rem;font-weight:600;
+  color:var(--ink-3);border:1px dashed var(--rule);border-radius:4px;padding:0 .35rem}
+td.c{text-align:center;padding:.45rem .4rem;border-bottom:1px solid var(--rule);
+  border-inline-start:1px solid var(--rule)}
+td.c .v{display:block;font-family:ui-monospace,Consolas,monospace;font-weight:700;
+  font-variant-numeric:tabular-nums;font-size:.92rem}
+td.c .k{display:block;font-size:.62rem;color:var(--ink-3);
+  letter-spacing:.02em}
+td.c .lv i,td.c .lv em i{font-style:normal;font-family:inherit;color:var(--ink-3);
+  font-weight:400;font-size:.92em}
+td.c .dy{display:block;font-size:.68rem;font-weight:600;
+  color:var(--win);white-space:nowrap}
+td.c .lv em{font-style:normal;display:block;font-weight:700;
+  color:var(--accent);font-size:.98em}
+.c .lv{display:block;font-family:ui-monospace,Consolas,monospace;font-size:.72rem;
+  font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+td.c .n{display:block;font-size:.66rem;color:var(--ink-3);white-space:nowrap}
+.c-win{background:var(--win-bg)}.c-win .v{color:var(--win)}
+.c-win.gapped{background:var(--sunk)}
+.c-win.gapped .v{color:var(--ink-2)}
+.c-loss{background:var(--loss-bg)}.c-loss .v{color:var(--loss)}
+.c-open{background:var(--open-bg)}.c-open .v{color:var(--open)}
+.c-flat .v{color:var(--ink-2)}
+.c-none{background:repeating-linear-gradient(135deg,transparent,transparent 5px,
+  var(--sunk) 5px,var(--sunk) 10px)}
+.c-none .v{color:var(--ink-3)}
+tr.dead th .tk{color:var(--ink-3)}
+.days{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:1.1rem 0 0}
+.days h2{margin:0 1.2rem .35rem;font-size:1.05rem}
+.days .sub{margin:0 1.2rem 1rem;font-size:.85rem;color:var(--ink-2);max-width:42rem}
+.days .sub b{color:var(--ink)}
+.days .scroll{border:0;border-radius:0;background:transparent}
+.days table{min-width:34rem}
+.days tbody th .sub{margin:0;font-size:.72rem;color:var(--ink-3);display:block;
+  font-family:ui-monospace,Consolas,monospace}
+.days td.c .v{font-size:1.05rem}
+.d-full{background:var(--win-bg)}.d-full .v{color:var(--win)}
+.d-some{background:var(--open-bg)}.d-some .v{color:var(--open)}
+.d-zero .v{color:var(--ink-3)}
+td.st{font-size:.74rem;color:var(--ink-3);white-space:nowrap;text-align:right;
+  padding-inline:.8rem}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;padding:.7rem 1rem;
+  border-top:1px solid var(--rule);font-size:.78rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:.85rem;height:.85rem;border-radius:3px;
+  vertical-align:-1px;margin-inline-end:.35rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:1rem 1.05rem;display:flex;flex-direction:column;gap:.6rem}
+.card h3{margin:0;font-size:1.02rem}
+.frac{margin:0;font-size:.75rem;color:var(--ink-3)}
+.card dl{margin:0;display:flex;flex-direction:column;gap:.3rem}
+.card dl div{display:flex;justify-content:space-between;align-items:baseline;
+  gap:.5rem;font-size:.85rem}
+.card dt{color:var(--ink-2)}
+.card dd{margin:0;font-family:ui-monospace,Consolas,monospace;font-weight:700;
+  font-variant-numeric:tabular-nums}
+.card dd small{font-weight:400;color:var(--ink-3);font-size:.8em}
+.good{color:var(--win)}.bad{color:var(--loss)}.wait{color:var(--open)}
+.notes{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:1.1rem 1.2rem}
+.anat{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:1.1rem 1.2rem}
+.anat h2{margin:0 0 .6rem;font-size:1rem}
+.anat ul{margin:0;padding-inline-start:1.1rem;display:flex;flex-direction:column;
+  gap:.4rem;font-size:.85rem;color:var(--ink-2)}
+.anat b{color:var(--ink)}
+.notes h2{margin:0 0 .6rem;font-size:1rem}
+.notes ul{margin:0;padding-inline-start:1.1rem;display:flex;flex-direction:column;
+  gap:.5rem;font-size:.87rem;color:var(--ink-2)}
+.notes b{color:var(--ink)}
+footer{margin-top:.5rem;padding-top:1rem;border-top:1px solid var(--rule);
+  font-size:.8rem;color:var(--ink-3);display:flex;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--accent)}
+</style></head><body><div class="wrap">
+<header class="top"><h1>אם היינו קונים כל מניה בפתיחה — מה באמת היה קורה?</h1><p class="lede">כל שורה היא מניה, כל עמודה היא יעד מכירה. התא מראה מה היה יוצא מזה אילו קנינו בפתיחה של יום המסחר שאחרי הכניסה לרשימה, ומכרנו בדיוק ביעד הזה.</p>
+<p class="stamp">עודכן <bdi>23/09/2026</bdi></p>
+</header>
+<section class="verdict"><div class="big"><bdi>11</bdi></div><p>
+<b><bdi>11</bdi> מתוך <bdi>17</bdi> עסקאות כבר נסגרו.</b> 
+<bdi>11</bdi> מהן חזרו כל הדרך והגיעו ליעד הרביעי — 
+שם מוכרים, והכסף בחוץ. 
+<bdi>6</bdi> עדיין רצות ויכולות להסתיים לטובה או לרעה. 
+<b>אלה לא תוצאות — זו תמונת מצב.</b></p></section>
+<section class="days"><h2>יום־יום — כמה מכל קבוצה הגיעו לכל יעד</h2><p class="sub">כל שורה היא יום פרסום אחד והמניות שנבחרו בו. הקבוצה סגורה — מה שפורסם ב־14/09 יישאר אותן מניות לנצח, ולכן אפשר להשוות יום מול יום. נספר כאן אם <b>המחיר הגיע ליעד</b>, לא אם הספקנו לקנות.</p><div class="scroll"><table><thead><tr><th scope="col">יום<small>כמה נבחרו</small></th><th scope="col">יעד ראשון<small>רבע מהירידה</small></th><th scope="col">יעד שני<small>חצי מהירידה</small></th><th scope="col">יעד שלישי<small>שלושה רבעים</small></th><th scope="col">יעד רביעי<small>כל הירידה</small></th><th scope="col">מצב<small>כמה עוד רצות</small></th></tr></thead><tbody><tr><th scope="row"><span class="tk"><bdi>23/09</bdi></span><span class="sub"><bdi>6</bdi> מניות</span></th><td class="c d-zero"><span class="v">—</span><span class="n">טרם נפתח</span></td><td class="c d-zero"><span class="v">—</span><span class="n">טרם נפתח</span></td><td class="c d-zero"><span class="v">—</span><span class="n">טרם נפתח</span></td><td class="c d-zero"><span class="v">—</span><span class="n">טרם נפתח</span></td><td class="c st"><bdi>6 טרם נפתחו</bdi></td></tr><tr><th scope="row"><span class="tk"><bdi>16/09</bdi></span><span class="sub">מניה אחת</span></th><td class="c d-full"><span class="v"><bdi>1/1</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>1/1</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>1/1</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>1/1</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c st"><bdi>הכול נסגר</bdi></td></tr><tr><th scope="row"><span class="tk"><bdi>15/09</bdi></span><span class="sub"><bdi>3</bdi> מניות</span></th><td class="c d-full"><span class="v"><bdi>3/3</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>3/3</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>3/3</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>3/3</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c st"><bdi>הכול נסגר</bdi></td></tr><tr><th scope="row"><span class="tk"><bdi>14/09</bdi></span><span class="sub"><bdi>7</bdi> מניות</span></th><td class="c d-full"><span class="v"><bdi>7/7</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>7/7</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>7/7</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c d-full"><span class="v"><bdi>7/7</bdi></span><span class="n"><bdi>100%</bdi></span></td><td class="c st"><bdi>הכול נסגר</bdi></td></tr></tbody></table></div></section>
+<div class="scroll"><table><caption>המניות מול היעדים<span><bdi>17</bdi> תחזיות שאפשר היה לסחור בהן, ועוד <bdi>0</bdi> שלא</span></caption><thead><tr><th scope="col">מניה<small>תאריך · מחיר קנייה</small></th>
+<th scope="col">יעד ראשון<small>רבע מהירידה</small></th>
+<th scope="col">יעד שני<small>חצי מהירידה</small></th>
+<th scope="col">יעד שלישי<small>שלושה רבעים</small></th>
+<th scope="col">יעד רביעי<small>כל הירידה</small></th>
+</tr></thead><tbody>
+<tr><th scope="row"><span class="tk">ABNB</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$153.74</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$157.90</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$162.06</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$166.22</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">AFRM</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$68.87</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$69.65</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$70.43</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$71.21</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">BBY</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$91.31</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$91.83</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$92.34</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$92.85</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">GOLD</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$43.97</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$44.47</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$44.96</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$45.46</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">HPQ</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$32.72</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$33.28</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$33.84</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$34.40</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">VLO</span><span class="sub"><bdi>23/09</bdi> · <bdi>טרם נקנתה</bdi></span></th>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$385.20</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$394.56</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$403.92</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+<td class="c c-none"><span class="v"><bdi>—</bdi></span><span class="lv"><i>יעד</i> <bdi>$413.28</bdi></span><span class="n"><bdi>טרם נפתח</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">SRPT</span><span class="sub"><bdi>16/09</bdi> · <bdi>$20.23</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$20.32</bdi><em><i>עלייה</i> <bdi>+0.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 8</bdi></span><span class="n"><bdi>17/09 09:45</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$20.52</bdi><em><i>עלייה</i> <bdi>+1.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 8</bdi></span><span class="n"><bdi>17/09 09:45</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$20.72</bdi><em><i>עלייה</i> <bdi>+2.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 8</bdi></span><span class="n"><bdi>17/09 10:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$20.92</bdi><em><i>עלייה</i> <bdi>+3.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 8</bdi></span><span class="n"><bdi>17/09 14:55</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">HOOD</span><span class="sub"><bdi>15/09</bdi> · <bdi>$110.27</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.6%</bdi></span><span class="lv"><i>יעד</i> <bdi>$110.98</bdi><em><i>עלייה</i> <bdi>+0.6%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 7</bdi></span><span class="n"><bdi>16/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.1%</bdi></span><span class="lv"><i>יעד</i> <bdi>$111.51</bdi><em><i>עלייה</i> <bdi>+1.1%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 7</bdi></span><span class="n"><bdi>18/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.6%</bdi></span><span class="lv"><i>יעד</i> <bdi>$112.04</bdi><em><i>עלייה</i> <bdi>+1.6%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 7</bdi></span><span class="n"><bdi>18/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.1%</bdi></span><span class="lv"><i>יעד</i> <bdi>$112.57</bdi><em><i>עלייה</i> <bdi>+2.1%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 7</bdi></span><span class="n"><bdi>18/09 09:30</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">SMCI</span><span class="sub"><bdi>15/09</bdi> · <bdi>$35.95</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$36.75</bdi><em><i>עלייה</i> <bdi>+2.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 6</bdi></span><span class="n"><bdi>16/09 09:35</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+5.3%</bdi></span><span class="lv"><i>יעד</i> <bdi>$37.87</bdi><em><i>עלייה</i> <bdi>+5.3%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 6</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+8.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$38.98</bdi><em><i>עלייה</i> <bdi>+8.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 6</bdi></span><span class="n"><bdi>17/09 09:50</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+11.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$40.10</bdi><em><i>עלייה</i> <bdi>+11.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 6</bdi></span><span class="n"><bdi>17/09 10:35</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">SNOW</span><span class="sub"><bdi>15/09</bdi> · <bdi>$318.14</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.0%</bdi></span><span class="lv"><i>יעד</i> <bdi>$324.48</bdi><em><i>עלייה</i> <bdi>+2.0%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 11</bdi></span><span class="n"><bdi>16/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$325.99</bdi><em><i>עלייה</i> <bdi>+2.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 11</bdi></span><span class="n"><bdi>16/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.9%</bdi></span><span class="lv"><i>יעד</i> <bdi>$327.49</bdi><em><i>עלייה</i> <bdi>+2.9%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 11</bdi></span><span class="n"><bdi>16/09 09:35</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$328.99</bdi><em><i>עלייה</i> <bdi>+3.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 11</bdi></span><span class="n"><bdi>16/09 09:40</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">AMAT</span><span class="sub"><bdi>14/09</bdi> · <bdi>$429.85</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$431.66</bdi><em><i>עלייה</i> <bdi>+0.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 6</bdi></span><span class="n"><bdi>18/09 10:15</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$439.11</bdi><em><i>עלייה</i> <bdi>+2.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 6</bdi></span><span class="n"><bdi>18/09 15:50</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.9%</bdi></span><span class="lv"><i>יעד</i> <bdi>$446.56</bdi><em><i>עלייה</i> <bdi>+3.9%</bdi></em></span><span class="dy"><bdi>נגעה ביום 5 מתוך 6</bdi></span><span class="n"><bdi>21/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+5.6%</bdi></span><span class="lv"><i>יעד</i> <bdi>$454.01</bdi><em><i>עלייה</i> <bdi>+5.6%</bdi></em></span><span class="dy"><bdi>נגעה ביום 5 מתוך 6</bdi></span><span class="n"><bdi>21/09 09:30</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">ARM</span><span class="sub"><bdi>14/09</bdi> · <bdi>$241.62</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$242.80</bdi><em><i>עלייה</i> <bdi>+0.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 12</bdi></span><span class="n"><bdi>15/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.1%</bdi></span><span class="lv"><i>יעד</i> <bdi>$246.59</bdi><em><i>עלייה</i> <bdi>+2.1%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 12</bdi></span><span class="n"><bdi>15/09 09:45</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.6%</bdi></span><span class="lv"><i>יעד</i> <bdi>$250.39</bdi><em><i>עלייה</i> <bdi>+3.6%</bdi></em></span><span class="dy"><bdi>נגעה ביום 1 מתוך 12</bdi></span><span class="n"><bdi>15/09 09:50</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+5.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$254.18</bdi><em><i>עלייה</i> <bdi>+5.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 12</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">FCX</span><span class="sub"><bdi>14/09</bdi> · <bdi>$69.44</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$69.81</bdi><em><i>עלייה</i> <bdi>+0.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 8</bdi></span><span class="n"><bdi>16/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$70.27</bdi><em><i>עלייה</i> <bdi>+1.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 8</bdi></span><span class="n"><bdi>16/09 11:10</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.9%</bdi></span><span class="lv"><i>יעד</i> <bdi>$70.74</bdi><em><i>עלייה</i> <bdi>+1.9%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 8</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$71.21</bdi><em><i>עלייה</i> <bdi>+2.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 8</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">LRCX</span><span class="sub"><bdi>14/09</bdi> · <bdi>$278.31</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$279.62</bdi><em><i>עלייה</i> <bdi>+0.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 6</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.7%</bdi></span><span class="lv"><i>יעד</i> <bdi>$285.75</bdi><em><i>עלייה</i> <bdi>+2.7%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 6</bdi></span><span class="n"><bdi>18/09 15:50</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+4.9%</bdi></span><span class="lv"><i>יעד</i> <bdi>$291.88</bdi><em><i>עלייה</i> <bdi>+4.9%</bdi></em></span><span class="dy"><bdi>נגעה ביום 5 מתוך 6</bdi></span><span class="n"><bdi>21/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+7.1%</bdi></span><span class="lv"><i>יעד</i> <bdi>$298.01</bdi><em><i>עלייה</i> <bdi>+7.1%</bdi></em></span><span class="dy"><bdi>נגעה ביום 5 מתוך 6</bdi></span><span class="n"><bdi>21/09 11:05</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">MU</span><span class="sub"><bdi>14/09</bdi> · <bdi>$937.50</bdi></span></th>
+<td class="c c-win gapped"><span class="k">בלי רווח</span><span class="v"><bdi>0.0%</bdi></span><span class="lv"><i>יעד</i> <bdi>$937.38</bdi><em><i>עלייה</i> <bdi>0.0%</bdi></em></span><span class="n"><bdi>נפתחה כבר מעל היעד</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.4%</bdi></span><span class="lv"><i>יעד</i> <bdi>$950.72</bdi><em><i>עלייה</i> <bdi>+1.4%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 5</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+2.8%</bdi></span><span class="lv"><i>יעד</i> <bdi>$964.07</bdi><em><i>עלייה</i> <bdi>+2.8%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 5</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+4.3%</bdi></span><span class="lv"><i>יעד</i> <bdi>$977.41</bdi><em><i>עלייה</i> <bdi>+4.3%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 5</bdi></span><span class="n"><bdi>17/09 09:35</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">TER</span><span class="sub"><bdi>14/09</bdi> · <bdi>$337.83</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+0.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$339.45</bdi><em><i>עלייה</i> <bdi>+0.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 2 מתוך 8</bdi></span><span class="n"><bdi>16/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$349.70</bdi><em><i>עלייה</i> <bdi>+3.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 8</bdi></span><span class="n"><bdi>17/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+6.5%</bdi></span><span class="lv"><i>יעד</i> <bdi>$359.94</bdi><em><i>עלייה</i> <bdi>+6.5%</bdi></em></span><span class="dy"><bdi>נגעה ביום 3 מתוך 8</bdi></span><span class="n"><bdi>17/09 12:00</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+9.6%</bdi></span><span class="lv"><i>יעד</i> <bdi>$370.19</bdi><em><i>עלייה</i> <bdi>+9.6%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 8</bdi></span><span class="n"><bdi>18/09 15:55</bdi></span></td>
+</tr>
+<tr><th scope="row"><span class="tk">WDC</span><span class="sub"><bdi>14/09</bdi> · <bdi>$430.25</bdi></span></th>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+1.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$435.44</bdi><em><i>עלייה</i> <bdi>+1.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 6</bdi></span><span class="n"><bdi>18/09 09:35</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+3.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$443.94</bdi><em><i>עלייה</i> <bdi>+3.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 4 מתוך 6</bdi></span><span class="n"><bdi>18/09 15:50</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+5.2%</bdi></span><span class="lv"><i>יעד</i> <bdi>$452.43</bdi><em><i>עלייה</i> <bdi>+5.2%</bdi></em></span><span class="dy"><bdi>נגעה ביום 5 מתוך 6</bdi></span><span class="n"><bdi>21/09 09:30</bdi></span></td>
+<td class="c c-win"><span class="k">הרווח</span><span class="v"><bdi>+7.1%</bdi></span><span class="lv"><i>יעד</i> <bdi>$460.93</bdi><em><i>עלייה</i> <bdi>+7.1%</bdi></em></span><span class="dy"><bdi>נגעה ביום 6 מתוך 6</bdi></span><span class="n"><bdi>22/09 09:45</bdi></span></td>
+</tr>
+</tbody>
+</table>
+<div class="legend"><span><i style="background:var(--win-bg);border:1px solid var(--win)"></i>הגיעה ליעד ונמכרה ברווח</span><span><i style="background:var(--open-bg);border:1px solid var(--open)"></i>עדיין פתוחה — הרווח או ההפסד כרגע</span><span><i style="background:var(--loss-bg);border:1px solid var(--loss)"></i>נגמר הזמן, נמכרה בהפסד</span><span><i class="c-none" style="border:1px solid var(--rule)"></i>לא הייתה עסקה</span></div></div>
+<section class="anat"><h2>איך קוראים תא בטבלה</h2><ul><li><b>הרווח / כרגע / בסוף</b> — כמה המניה עשתה. ״הרווח״ = מה היה יוצא אילו מכרנו ביעד הזה. ״כרגע״ = איפה היא עומדת עכשיו, היעד עוד לא נגע. ״בסוף״ = איפה היא נסגרה כשנגמר הזמן.</li><li><b>יעד</b> — המחיר עצמו, בדולרים, שבו הייתה מכירה.</li><li><b>עלייה</b> — כמה אחוז המניה צריכה לטפס ממחיר הקנייה כדי להגיע ליעד. זה גודל המהלך שביקשנו ממנה.</li><li><b>יום כמה</b> — באיזה יום מסחר זה קרה, מתוך הזמן שהקצבנו. יעד שנגע ביום 1 ויעד שנגע ביום 9 מתוך 10 הם לא אותו דבר.</li><li><b>התאריך והשעה</b> — הרגע המדויק שבו המחיר נגע, כדי שאפשר יהיה לבדוק אותו מול גרף.</li><li><b>״בלי רווח״</b> — המניה קפצה בלילה ופתחה כבר מעל היעד הזה. היעד היה מתחת למחיר שהיינו משלמים, ולכן פקודת המכירה הייתה נסגרת באותו מחיר בדיוק שבו קנינו. זה לא ניצחון קטן — זה אפס.</li></ul></section>
+<div class="grid">
+<article class="card"><header><h3>יעד ראשון</h3><p class="frac">רבע מהירידה</p></header><dl>
+<div><dt>נסגרו ברווח</dt><dd class="good"><bdi>11</bdi> <small>מתוך <bdi>17</bdi></small></dd></div>
+<div><dt>רווח ממוצע במי שהגיעה</dt><dd class="good"><bdi>+0.8%</bdi></dd></div>
+<div><dt>עדיין פתוחות</dt><dd class="wait"><bdi>0</bdi></dd></div>
+</dl></article>
+<article class="card"><header><h3>יעד שני</h3><p class="frac">חצי מהירידה</p></header><dl>
+<div><dt>נסגרו ברווח</dt><dd class="good"><bdi>11</bdi> <small>מתוך <bdi>17</bdi></small></dd></div>
+<div><dt>רווח ממוצע במי שהגיעה</dt><dd class="good"><bdi>+2.4%</bdi></dd></div>
+<div><dt>עדיין פתוחות</dt><dd class="wait"><bdi>0</bdi></dd></div>
+</dl></article>
+<article class="card"><header><h3>יעד שלישי</h3><p class="frac">שלושה רבעים</p></header><dl>
+<div><dt>נסגרו ברווח</dt><dd class="good"><bdi>11</bdi> <small>מתוך <bdi>17</bdi></small></dd></div>
+<div><dt>רווח ממוצע במי שהגיעה</dt><dd class="good"><bdi>+4.0%</bdi></dd></div>
+<div><dt>עדיין פתוחות</dt><dd class="wait"><bdi>0</bdi></dd></div>
+</dl></article>
+<article class="card"><header><h3>יעד רביעי</h3><p class="frac">כל הירידה</p></header><dl>
+<div><dt>נסגרו ברווח</dt><dd class="good"><bdi>11</bdi> <small>מתוך <bdi>17</bdi></small></dd></div>
+<div><dt>רווח ממוצע במי שהגיעה</dt><dd class="good"><bdi>+5.6%</bdi></dd></div>
+<div><dt>עדיין פתוחות</dt><dd class="wait"><bdi>0</bdi></dd></div>
+</dl></article>
+</div>
+<section class="notes"><h2>איך זה נמדד, ומה עוד אי אפשר לדעת</h2><ul>
+<li><b>קונים בפתיחה, לא במחיר שהצגנו.</b> המחיר שמופיע ברשימה הוא מחיר סגירה. הכי מוקדם שאפשר לקנות זה הפתיחה למחרת, ולפעמים הפער ביניהם גדול — לכן כל החישוב כאן מתחיל ממחיר הפתיחה.</li>
+<li><b>יעד נחשב כהושג אם המחיר נגע בו במהלך היום</b>, גם אם ירד אחר כך. זה בדיוק הרגע שבו פקודת מכירה שהשארתם שם הייתה מתבצעת.</li>
+<li><b>0 מניות לא נכללות בסיכום.</b> הן נפתחו כבר מעל היעד המלא — כל החזרה קרתה בלילה, לפני שאפשר היה לקנות. לספור אותן כהצלחה זה לספור רווח שאיש לא יכול היה לקחת.</li>
+<li><b>המספרים בעמודות הרחוקות נראים טובים יותר, וזה מטעה.</b> ככל שהיעד רחוק יותר, כך פחות עסקאות נסגרו ויותר מהרווח עדיין ״על הנייר״. אי אפשר להשוות בין העמודות עד שהעסקאות ייסגרו.</li>
+<li><b>מדגם קטן מאוד.</b> 17 תחזיות על פני ימים ספורים. כל מסקנה מכאן היא רעש, לא ממצא.</li>
+</ul></section>
+<footer><a href="./">← חזרה לרשימה</a><a href="./results.html">לדף התוצאות</a><span>המעקב התחיל ב־<bdi>14/09/2026</bdi></span></footer>
+</div></body></html>
