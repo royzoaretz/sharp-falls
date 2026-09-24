@@ -1,17 +1,19 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ירידות חדות — 23/09</title>
+<title>ירידות חדות — 24/09</title>
 <style>
 :root{
   --bg:#f6f7f9; --card:#fff; --ink:#15181d; --ink-2:#4b535d; --ink-3:#7b8590;
   --rule:#e4e7eb; --fall:#b3261e; --fall-bg:#fdecea; --rise:#1b6b43;
   --rise-bg:#e6f4ec; --accent:#1f5f8b; --accent-bg:#e9f2f8;
+  --warn:#8a5a00; --warn-bg:#fdf3dc;
 }
 @media (prefers-color-scheme:dark){
   :root{
     --bg:#0e1115; --card:#171b21; --ink:#e9edf1; --ink-2:#b2bbc5; --ink-3:#7d8794;
     --rule:#262c34; --fall:#f2837a; --fall-bg:#2a1816; --rise:#6fc79a;
     --rise-bg:#122619; --accent:#7ab8dd; --accent-bg:#13232d;
+    --warn:#e8c070; --warn-bg:#2a2210;
   }
 }
 *{box-sizing:border-box}
@@ -78,6 +80,13 @@ h1{margin:0 0 .2rem;font-size:1.5rem}
   padding:.5rem .8rem;border-radius:9px;margin:0 0 .6rem}
 .earn span,.again span{display:block;font-weight:400;font-size:.8rem;
   margin-top:.15rem;opacity:.85}
+.cause{font-size:.85rem;font-weight:600;padding:.5rem .8rem;border-radius:9px;
+  margin:0 0 .6rem}
+.cause span{display:block;font-weight:400;font-size:.82rem;margin-top:.15rem}
+.cause .cm{font-size:.76rem;opacity:.8}
+.cause.green{background:var(--rise-bg);color:var(--rise)}
+.cause.yellow{background:var(--warn-bg);color:var(--warn)}
+.cause.red{background:var(--fall-bg);color:var(--fall)}
 .concent{background:var(--fall-bg);color:var(--fall);padding:.7rem .9rem;
   border-radius:9px;font-size:.9rem;margin:0 0 1.1rem}
 .news{margin:.55rem 0 0;padding:.65rem .85rem;border-radius:9px;
@@ -241,355 +250,305 @@ a.accuracy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.sortbar button{transition:none}}
 </style></head><body><div class="wrap">
 <header><h1>📉 ירידות חדות</h1>
-<p class="sub">יום רביעי, 23 בספטמבר 2026</p></header>
-<details class="vix normal"><summary><span class="vx-l">מדד הפחד <bdi>VIX</bdi></span><span class="vx-v"><bdi>15.9</bdi></span><span class="vx-c">▲ <bdi>+5.1%</bdi></span><span class="vx-s">רמה רגילה</span><span class="vx-q" aria-hidden="true">?</span></summary><div class="vx-body"><p>מדד הפחד מודד כמה תנועה שוק האופציות מתמחר לחודש הקרוב במניות אמריקאיות. הוא לא אומר לאן השוק ילך — רק כמה חזק הוא צפוי לזוז.</p><ul><li><b>מתחת ל-‎15‎</b> — שוק רגוע</li><li><b>‎15‎ עד ‎20‎</b> — רמה רגילה</li><li><b>‎20‎ עד ‎25‎</b> — מעט מתוח</li><li><b>‎25‎ עד ‎30‎</b> — שוק עצבני</li><li><b>מעל ‎30‎</b> — פאניקה</li></ul><p class="vx-note">הממוצע בחודש האחרון: <bdi>15.7</bdi>. כשהמדד גבוה, ירידות חדות שכיחות יותר, וגם התנועות בדרך חזרה גדולות יותר.</p></div></details>
+<p class="sub">יום חמישי, 24 בספטמבר 2026</p></header>
+<details class="vix normal"><summary><span class="vx-l">מדד הפחד <bdi>VIX</bdi></span><span class="vx-v"><bdi>15.7</bdi></span><span class="vx-c">▲ <bdi>+3.2%</bdi></span><span class="vx-s">רמה רגילה</span><span class="vx-q" aria-hidden="true">?</span></summary><div class="vx-body"><p>מדד הפחד מודד כמה תנועה שוק האופציות מתמחר לחודש הקרוב במניות אמריקאיות. הוא לא אומר לאן השוק ילך — רק כמה חזק הוא צפוי לזוז.</p><ul><li><b>מתחת ל-‎15‎</b> — שוק רגוע</li><li><b>‎15‎ עד ‎20‎</b> — רמה רגילה</li><li><b>‎20‎ עד ‎25‎</b> — מעט מתוח</li><li><b>‎25‎ עד ‎30‎</b> — שוק עצבני</li><li><b>מעל ‎30‎</b> — פאניקה</li></ul><p class="vx-note">הממוצע בחודש האחרון: <bdi>15.6</bdi>. כשהמדד גבוה, ירידות חדות שכיחות יותר, וגם התנועות בדרך חזרה גדולות יותר.</p></div></details>
 <p class="lead">מניות שירדו חזק ביומיים האחרונים, ושעדיין במגמת עלייה ארוכת טווח.</p>
 <div class="sortbar"><span class="lbl">מיון:</span><button data-key="fell" data-dir="1" aria-pressed="true">ירידה הכי גדולה</button><button data-key="recovered" data-dir="-1" aria-pressed="false">אחוז חזרה גבוה</button><button data-key="days" data-dir="1" aria-pressed="false">חזרה מהירה</button><button data-key="price" data-dir="1" aria-pressed="false">מחיר נמוך</button><button data-key="price" data-dir="-1" aria-pressed="false">מחיר גבוה</button></div>
 <div id="list">
-<div class="stock" data-fell="-10.0108" data-price="151.6500" data-recovered="40" data-days="29">
+<div class="stock" data-fell="-9.2604" data-price="150.5500" data-recovered="40" data-days="29">
 <div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NASDAQ%3AABNB" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>ABNB</bdi></span> <span class="cname">Airbnb, Inc.</span><span class="ext"> ↗</span></a></span>
 <div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:00</bdi></span><span class="pv"><bdi>$151.65</bdi></span><span class="pc2 up"><bdi>+1.4%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$149.58</bdi></span><span class="pc2 dn"><bdi>-10.0%</bdi></span></span>
+<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:29</bdi></span><span class="pv"><bdi>$150.55</bdi></span><span class="pc2 dn"><bdi>-0.6%</bdi></span></span>
+<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$151.39</bdi></span><span class="pc2 dn"><bdi>-9.3%</bdi></span></span>
 </div>
 <p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.5% בממוצע ממנו, ולפעמים — ב-12% מהימים — הפער גדול מאחוז שלם.</p>
 </div>
 <div class="meta"><span>צריכה מחזורית</span><span>שווי <bdi>$102 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>10%</bdi> ביומיים</p>
+<p class="fellline">ירדה <bdi>9%</bdi> ביומיים</p>
+<p class="again">🔁 יום <bdi>2</bdi> ברשימה — לא איתות חדש<span>הופיעה לראשונה ב-<bdi>23/09</bdi> במחיר <bdi>$149.58</bdi>, ומאז עלתה <bdi>1.2%</bdi>. היעד נמדד עדיין מהמחיר הראשון. בבדיקה על <bdi>12,588</bdi> מקרים בעבר, יום שני ואילך לא היה כניסה גרועה יותר מהיום הראשון.</span></p>
+<p class="cause yellow">🟡 סיבת הירידה: מעורב<span>המניה ירדה יחד עם חברות תיירות אחרות עקב חולשה בענף ואיום מצד מערכת ניהול נכסים לעקוף את הסוכנויות.</span><span class="cm">בעבר, ב-<bdi>83%</bdi> מירידות כאלה המניה חזרה למחיר שלפני הירידה תוך <bdi>60</bdi> ימי מסחר, בממוצע אחרי <bdi>18</bdi> ימים.</span></p>
 <div class="tags">
 <div class="tag warnt"><b><bdi>40%</bdi></b><span>חזרו תוך <bdi>29</bdi> ימים</span></div>
 <div class="tag"><b><bdi>40</bdi></b><span>מקרים ב-<bdi>3.3</bdi> שנים</span></div>
 <div class="tag"><b><bdi>29</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+10%</bdi></b><span>עד היעד</span></div>
+<div class="tag key"><b><bdi>+11%</bdi></b><span>עד היעד</span></div>
 </div>
 <div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>29</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+2.4%</bdi>)</em></span><span class="pc"><bdi>80%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+4.8%</bdi>)</em></span><span class="pc"><bdi>65%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+7.2%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+9.6%</bdi>)</em></span><span class="pc"><bdi>40%</bdi></span></div>
+<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+2.7%</bdi>)</em></span><span class="pc"><bdi>80%</bdi></span></div>
+<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+5.4%</bdi>)</em></span><span class="pc"><bdi>65%</bdi></span></div>
+<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+8.1%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
+<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+10.8%</bdi>)</em></span><span class="pc"><bdi>40%</bdi></span></div>
 <div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>29</bdi> ימים, <bdi>80%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
 </div>
 <div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
-<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$150.00</bdi></span><span class="vd dn"><bdi>-1.1%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$144.16</bdi></span><span class="vd dn"><bdi>-4.9%</bdi></span></div>
-<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$135.72</bdi></span><span class="vd dn"><bdi>-10.5%</bdi></span></div>
-<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$193.45</bdi></span><span class="vd up"><bdi>+27.6%</bdi></span></div>
-<div class="bar"><i style="left:28%"></i></div><div class="barlab"><span><bdi>$193</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$136</bdi></span></div>
+<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$150.00</bdi></span><span class="vd dn"><bdi>-0.4%</bdi></span></div>
+<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$141.56</bdi></span><span class="vd dn"><bdi>-6.0%</bdi></span></div>
+<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$135.72</bdi></span><span class="vd dn"><bdi>-9.9%</bdi></span></div>
+<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$193.45</bdi></span><span class="vd up"><bdi>+28.5%</bdi></span></div>
+<div class="bar"><i style="left:26%"></i></div><div class="barlab"><span><bdi>$193</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$136</bdi></span></div>
 <div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
 </div>
 <div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$151.65</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$155.29</bdi></span><span class="pn"><bdi>+2.4%</bdi> · קרה ב-<bdi>80%</bdi> תוך <bdi>29 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$158.94</bdi></span><span class="pn"><bdi>+4.8%</bdi> · קרה ב-<bdi>65%</bdi> תוך <bdi>29 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$162.58</bdi></span><span class="pn"><bdi>+7.2%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>29 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$166.22</bdi></span><span class="pn"><bdi>+9.6%</bdi> · קרה ב-<bdi>40%</bdi> תוך <bdi>29 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$140.28</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>7.5%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$81.74</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-46.1%</bdi>)</span></div>
+<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$150.55</bdi></span><span class="pn">המחיר עכשיו</span></div>
+<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$154.62</bdi></span><span class="pn"><bdi>+2.7%</bdi> · קרה ב-<bdi>80%</bdi> תוך <bdi>29 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$158.69</bdi></span><span class="pn"><bdi>+5.4%</bdi> · קרה ב-<bdi>65%</bdi> תוך <bdi>29 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$162.77</bdi></span><span class="pn"><bdi>+8.1%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>29 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$166.84</bdi></span><span class="pn"><bdi>+10.8%</bdi> · קרה ב-<bdi>40%</bdi> תוך <bdi>29 ימים</bdi></span></div>
+<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$139.26</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>7.5%</bdi> לפני שהיא עולה</span></div>
+<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$81.15</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-46.1%</bdi>)</span></div>
 <div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>87</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
 <div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
 </div>
 <div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>40</bdi> פעמים ב-<bdi>3.3</bdi> השנים האחרונות. ב-<bdi>40%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>29</bdi> ימי מסחר, וב-<bdi>80%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$166.22</bdi> (<bdi>+10%</bdi>) תוך <bdi>29</bdi> ימי מסחר.</p></div>
+<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$166.84</bdi> (<bdi>+11%</bdi>) תוך <bdi>29</bdi> ימי מסחר.</p></div>
 <p class="warn">שימו לב: ב-<bdi>20%</bdi> מהמקרים היא לא חזרה כלל, גם לא תוך חצי שנה.</p>
-<div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul>
-<li><a href="https://finnhub.io/api/news?id=0518a6ef61f86a74163e1b534a000dc6875b5aad3965135408a293d3293d3fcb" target="_blank" rel="noopener noreferrer" title="The 5% Wall: Treasury Yields Take the Air Out of Wall Street&#x27;s Muse Rally">העלייה בתשואות אגרות החוב ל-10 שנים מעל ל-5% הובילה לירידות במדדים המובילים בוול סטריט.<span class="ext"> ↗</span></a><span class="src"> — ChartMill, <bdi>24/09 10:14</bdi></span></li>
-</ul></div>
+<div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul><li>לא מצאנו בחדשות הסבר לירידה. <span class="src">הכתבות שפורסמו עסקו במחיר עצמו או בדעות אנליסטים.</span></li></ul></div>
 <details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
-<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv pos"><bdi>27</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ נמכרה יותר מדי — סוחרים מחפשים כאן חזרה למעלה</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-3.14</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv pos"><bdi>-0.10</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ בתחתית הטווח — נמוך ביחס לעצמו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv neg"><bdi>-10.7%</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מתחת לממוצע של החודשיים האחרונים</div></div>
-<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>25</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>2.8x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ הרבה יותר מסחר מהרגיל</div></div>
+<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv pos"><bdi>30</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ נמכרה יותר מדי — סוחרים מחפשים כאן חזרה למעלה</div></div>
+<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-3.35</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
+<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv pos"><bdi>0.01</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ בתחתית הטווח — נמוך ביחס לעצמו</div></div>
+<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv neg"><bdi>-9.6%</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מתחת לממוצע של החודשיים האחרונים</div></div>
+<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>26</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ יש מגמה חזקה</div></div>
+<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>1.7x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ הרבה יותר מסחר מהרגיל</div></div>
 </div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>35%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-10% ביומיים האחרונים. לפני פתיחת המסחר היום היא כבר עלתה ב-1.4%. זה אומר שחלק קטן מהדרך חזרה למחיר הקודם כבר נעשה.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>ב-80% מהמקרים היא החזירה רבע מהירידה תוך חודש.</li><li>לעומת זאת, רק ב-40% מהמקרים היא החזירה את כל הירידה באותו זמן.</li><li>זה אומר שסביר מאוד שהיא תחזיר חלק מהירידה, אבל פחות סביר שתחזיר הכל מהר.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 7.5% לפני שהיא מתחילה לעלות.</li><li>המחיר נמצא רק 5% מעל המחיר הממוצע שלה בשנה האחרונה, אז כמעט לא נשאר מרחק ביטחון.</li><li>זה קרה רק 40 פעמים ב-3 השנים האחרונות, אז אין הרבה ניסיון להשוות אליו.</li></ul><b>רמת ביטחון: 35%</b><p>הורדתי מעט מהמספר ההיסטורי של 40% כי ההיסטוריה קצרה ויש סיכוי גבוה לירידה נוספת בהתחלה.</p><b>מה יכול לשנות את התמונה</b><p>אם התשואות על אגרות החוב ימשיכו לעלות, זה עלול להקשות על המניה לחזור למחיר.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
+<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>35%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-9% ביומיים האחרונים. לפני פתיחת המסחר היום היא ירדה עוד קצת, ב-0.6%. זה אומר שהדרך חזרה למחיר התארכה, ועכשיו נדרשת עלייה של 11% כדי להגיע ליעד.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>ב-80% מהמקרים בעבר היא החזירה רבע מהירידה תוך 29 ימים.</li><li>חזרה למחיר המלא באותו זמן קרתה רק ב-40% מהמקרים.</li><li>לכן, סביר מאוד שהיא תעלה קצת, אבל פחות סביר שתחזיר הכל מהר.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 7.5% לפני שהיא מתחילה לעלות.</li><li>המחיר עכשיו נמצא רק 6% מעל המחיר הממוצע שלה בשנה האחרונה.</li><li>זה קרה לה רק 40 פעמים ב-3.3 השנים האחרונות, אז אין הרבה ניסיון להשוות אליו.</li></ul><b>רמת ביטחון: 35%</b><p>הורדתי מעט מהמספר ההיסטורי של 40% כי ההיסטוריה קצרה ויש מעט מקרים דומים.</p><b>מה יכול לשנות את התמונה</b><p>אם היא תמשיך לרדת הרבה מעבר ל-7.5% הרגילים, הדרך חזרה למחיר תיקח יותר זמן.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
 </div>
-<div class="stock" data-fell="-9.0592" data-price="380.0800" data-recovered="50" data-days="8">
-<div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3AVLO" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>VLO</bdi></span> <span class="cname">Valero Energy Corporation</span><span class="ext"> ↗</span></a></span>
+<div class="stock" data-fell="-6.1241" data-price="72.0300" data-recovered="47" data-days="7">
+<div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3AETSY" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>ETSY</bdi></span> <span class="cname">Etsy, Inc.</span><span class="ext"> ↗</span></a></span>
 <div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>08:38</bdi></span><span class="pv"><bdi>$380.08</bdi></span><span class="pc2 up"><bdi>+1.1%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$375.84</bdi></span><span class="pc2 dn"><bdi>-9.1%</bdi></span></span>
+<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>08:39</bdi></span><span class="pv"><bdi>$72.03</bdi></span><span class="pc2 up"><bdi>+4.4%</bdi></span></span>
+<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$68.98</bdi></span><span class="pc2 dn"><bdi>-6.1%</bdi></span></span>
 </div>
-<p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.3% בממוצע ממנו, ולפעמים — ב-12% מהימים — הפער גדול מאחוז שלם.</p>
+<p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.5% בממוצע ממנו, ולא פעם — ב-28% מהימים — הפער גדול מאחוז שלם.</p>
 </div>
-<div class="meta"><span>אנרגיה</span><span>שווי <bdi>$110 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>9%</bdi> ביומיים</p>
+<div class="meta"><span>צריכה מחזורית</span><span>שווי <bdi>$7 מיליארד</bdi></span></div>
+<p class="fellline">ירדה <bdi>6%</bdi> ביומיים</p>
+<p class="cause yellow">🟡 סיבת הירידה: מעורב<span>המניה ירדה בעקבות הורדת המלצה של אנליסטים עקב חששות לגבי הביקוש הצרכני.</span><span class="cm">בעבר, ב-<bdi>83%</bdi> מירידות כאלה המניה חזרה למחיר שלפני הירידה תוך <bdi>60</bdi> ימי מסחר, בממוצע אחרי <bdi>18</bdi> ימים.</span></p>
 <div class="tags">
-<div class="tag good"><b><bdi>50%</bdi></b><span>חזרו תוך <bdi>8</bdi> ימים</span></div>
-<div class="tag"><b><bdi>105</bdi></b><span>מקרים ב-<bdi>13.3</bdi> שנים</span></div>
-<div class="tag"><b><bdi>8</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+9%</bdi></b><span>עד היעד</span></div>
+<div class="tag warnt"><b><bdi>47%</bdi></b><span>חזרו תוך <bdi>7</bdi> ימים</span></div>
+<div class="tag"><b><bdi>224</bdi></b><span>מקרים ב-<bdi>9.5</bdi> שנים</span></div>
+<div class="tag"><b><bdi>7</bdi></b><span>ימי מסחר</span></div>
+<div class="tag key"><b><bdi>+2%</bdi></b><span>עד היעד</span></div>
 </div>
-<div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>8</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+2.2%</bdi>)</em></span><span class="pc"><bdi>72%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+4.4%</bdi>)</em></span><span class="pc"><bdi>66%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+6.6%</bdi>)</em></span><span class="pc"><bdi>56%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+8.7%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
-<div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>8</bdi> ימים, <bdi>94%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
+<div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>7</bdi> ימי מסחר</div>
+<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+0.5%</bdi>)</em></span><span class="pc"><bdi>75%</bdi></span></div>
+<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+1.0%</bdi>)</em></span><span class="pc"><bdi>62%</bdi></span></div>
+<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+1.5%</bdi>)</em></span><span class="pc"><bdi>51%</bdi></span></div>
+<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+2.0%</bdi>)</em></span><span class="pc"><bdi>47%</bdi></span></div>
+<div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>7</bdi> ימים, <bdi>88%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
 </div>
 <div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
-<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$350.00</bdi></span><span class="vd dn"><bdi>-7.9%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$252.88</bdi></span><span class="vd dn"><bdi>-33.5%</bdi></span></div>
-<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$235.19</bdi></span><span class="vd dn"><bdi>-38.1%</bdi></span></div>
-<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$419.04</bdi></span><span class="vd up"><bdi>+10.3%</bdi></span></div>
-<div class="bar"><i style="left:79%"></i></div><div class="barlab"><span><bdi>$419</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$235</bdi></span></div>
+<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$70.00</bdi></span><span class="vd dn"><bdi>-2.8%</bdi></span></div>
+<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$67.95</bdi></span><span class="vd dn"><bdi>-5.7%</bdi></span></div>
+<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$67.59</bdi></span><span class="vd dn"><bdi>-6.2%</bdi></span></div>
+<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$87.97</bdi></span><span class="vd up"><bdi>+22.1%</bdi></span></div>
+<div class="bar"><i style="left:22%"></i></div><div class="barlab"><span><bdi>$88</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$68</bdi></span></div>
 <div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
 </div>
 <div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$380.08</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$388.38</bdi></span><span class="pn"><bdi>+2.2%</bdi> · קרה ב-<bdi>72%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$396.68</bdi></span><span class="pn"><bdi>+4.4%</bdi> · קרה ב-<bdi>66%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$404.98</bdi></span><span class="pn"><bdi>+6.6%</bdi> · קרה ב-<bdi>56%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$413.28</bdi></span><span class="pn"><bdi>+8.7%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$374.38</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>1.5%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$295.70</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-22.2%</bdi>)</span></div>
-<div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>24</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
+<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$72.03</bdi></span><span class="pn">המחיר עכשיו</span></div>
+<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$72.39</bdi></span><span class="pn"><bdi>+0.5%</bdi> · קרה ב-<bdi>75%</bdi> תוך <bdi>7 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$72.76</bdi></span><span class="pn"><bdi>+1.0%</bdi> · קרה ב-<bdi>62%</bdi> תוך <bdi>7 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$73.12</bdi></span><span class="pn"><bdi>+1.5%</bdi> · קרה ב-<bdi>51%</bdi> תוך <bdi>7 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$73.48</bdi></span><span class="pn"><bdi>+2.0%</bdi> · קרה ב-<bdi>47%</bdi> תוך <bdi>7 ימים</bdi></span></div>
+<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$70.73</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>1.8%</bdi> לפני שהיא עולה</span></div>
+<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$19.52</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-72.9%</bdi>)</span></div>
+<div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>21</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
 <div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
 </div>
-<div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>105</bdi> פעמים ב-<bdi>13.3</bdi> השנים האחרונות. ב-<bdi>50%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>8</bdi> ימי מסחר, וב-<bdi>94%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$413.28</bdi> (<bdi>+9%</bdi>) תוך <bdi>8</bdi> ימי מסחר.</p></div>
+<div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>224</bdi> פעמים ב-<bdi>9.5</bdi> השנים האחרונות. ב-<bdi>47%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>7</bdi> ימי מסחר, וב-<bdi>88%</bdi> היא חזרה בתוך חצי שנה.</p></div>
+<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$73.48</bdi> (<bdi>+2%</bdi>) תוך <bdi>7</bdi> ימי מסחר.</p></div>
 <div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul>
-<li><a href="https://finnhub.io/api/news?id=7907421a6c0bd18fcd7260fb06ec16c3f5c8fdec77ecc1f3aa5f39dd6f9f8325" target="_blank" rel="noopener noreferrer" title="Steve Weiss Dumped an Energy Stock That Tripled the S&amp;P 500 Over a Decade">סטיב וייס מכר את מניותיו בחברת ואלרו לאחר שהגדיר את מניות האנרגיה כאכזבה של עשור.<span class="ext"> ↗</span></a><span class="src"> — Yahoo, <bdi>24/09 01:27</bdi></span></li>
+<li><a href="https://finnhub.io/api/news?id=f9127521bf8b88db6c8f8828e851fea27728593ba760ad89cac203c894dd6a69" target="_blank" rel="noopener noreferrer" title="Etsy, CarGurus, Cars.com, and EverQuote Shares Are Falling, What You Need To Know">מניות החברות ירדו בעקבות חששות בוול סטריט מהשפעת סוכן הבינה המלאכותית החדש של מטא על תעבורת המשתמשים הישירה.<span class="ext"> ↗</span></a><span class="src"> — Yahoo, <bdi>23/09 22:13</bdi></span></li>
 </ul></div>
 <details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
-<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>53</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-1.45</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.49</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+10.1%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
-<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>39</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ יש מגמה חזקה</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>2.0x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ הרבה יותר מסחר מהרגיל</div></div>
+<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>32</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
+<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.40</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
+<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv pos"><bdi>0.12</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ בתחתית הטווח — נמוך ביחס לעצמו</div></div>
+<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv neg"><bdi>-13.8%</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מתחת לממוצע של החודשיים האחרונים</div></div>
+<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>16</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
+<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>1.5x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ יותר מסחר מהרגיל</div></div>
 </div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>52%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-9% ביומיים האחרונים. לפני פתיחת המסחר היום היא כבר עלתה ב-1.1%. זה אומר שחלק קטן מהדרך חזרה למעלה כבר נעשה.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>יש לנו היסטוריה ארוכה לבדוק. זה קרה לה 105 פעמים ב-13 השנים האחרונות.</li><li>ב-72% מהמקרים היא החזירה רבע מהירידה תוך 8 ימים.</li><li>את כל הירידה היא החזירה רק ב-50% מהמקרים באותו זמן.</li><li>הפער הזה אומר שסביר יותר שהיא תחזיר רק חלק מהמחיר.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 1.5% לפני שהיא מתחילה לעלות.</li><li>במקרה הכי גרוע בעבר היא המשיכה לרדת עוד 22.2%.</li><li>המחיר שלה עדיין גבוה מאוד. הוא נמצא 33.5% מעל המחיר הממוצע שלה בשנה האחרונה.</li></ul><b>רמת ביטחון: 52%</b><p>המספר ההיסטורי הוא 50%, אבל העלייה הקטנה לפני פתיחת המסחר מקצרת קצת את הדרך.</p><b>מה יכול לשנות את התמונה</b><p>אם החדשות על משקיע גדול שמכר את המניות יגרמו לעוד אנשים למכור בלחץ.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
+<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>55%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-6% ביומיים האחרונים בגלל חששות מבינה מלאכותית. אבל לפני פתיחת המסחר היא כבר עלתה ב-4.4%. זה אומר שהיא עשתה יותר מחצי מהדרך חזרה למחיר היעד.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>זה קרה לה 224 פעמים ב-9.5 השנים האחרונות, אז יש הרבה ניסיון להשוות אליו.</li><li>ב-75% מהמקרים היא החזירה רבע מהירידה תוך 7 ימים.</li><li>לעומת זאת, רק ב-47% מהמקרים היא החזירה את כל הירידה באותו זמן. כלומר סביר שתחזיר חלק, פחות סביר שתחזיר הכל בזמן.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 1.8% לפני שהיא מתחילה לעלות.</li><li>המחיר הנוכחי נמצא רק 5.7% מעל המחיר הממוצע שלה בשנה האחרונה.</li><li>זה אומר שכמעט ולא נשאר כרית ביטחון למטה.</li></ul><b>רמת ביטחון: 55%</b><p>המספר ההיסטורי הוא 47%, אבל העליות החזקות לפני הפתיחה מקצרות מאוד את הדרך שנשארה ליעד.</p><b>מה יכול לשנות את התמונה</b><p>אם החששות מהמתחרים יגרמו לירידה גדולה יותר מהירידה הרגילה של 1.8%.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
 </div>
-<div class="stock" data-fell="-6.5116" data-price="32.1900" data-recovered="48" data-days="10">
+<div class="stock" data-fell="-5.4932" data-price="32.0700" data-recovered="48" data-days="10">
 <div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3AHPQ" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>HPQ</bdi></span> <span class="cname">HP Inc.</span><span class="ext"> ↗</span></a></span>
 <div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>08:25</bdi></span><span class="pv"><bdi>$32.19</bdi></span><span class="pc2 fl"><bdi>+0.1%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$32.16</bdi></span><span class="pc2 dn"><bdi>-6.5%</bdi></span></span>
+<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:08</bdi></span><span class="pv"><bdi>$32.07</bdi></span><span class="pc2 up"><bdi>+3.0%</bdi></span></span>
+<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$31.14</bdi></span><span class="pc2 dn"><bdi>-5.5%</bdi></span></span>
 </div>
 <p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.5% בממוצע ממנו, ולפעמים — ב-19% מהימים — הפער גדול מאחוז שלם.</p>
 </div>
 <div class="meta"><span>טכנולוגיה</span><span>שווי <bdi>$31 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>7%</bdi> ביומיים</p>
+<p class="fellline">ירדה <bdi>5%</bdi> ביומיים</p>
+<p class="again">🔁 יום <bdi>2</bdi> ברשימה — לא איתות חדש<span>הופיעה לראשונה ב-<bdi>23/09</bdi> במחיר <bdi>$32.16</bdi>, ומאז עוד ירדה <bdi>3.2%</bdi>. היעד נמדד עדיין מהמחיר הראשון. בבדיקה על <bdi>12,588</bdi> מקרים בעבר, יום שני ואילך לא היה כניסה גרועה יותר מהיום הראשון.</span></p>
+<p class="cause red">🔴 סיבת הירידה: בעיה של החברה<span>אנליסטים של UBS הורידו את תחזית מכירות המחשבים לשנת 2027, מה שהוביל לירידות במניות יצרניות המחשבים.</span><span class="cm">בעבר, ב-<bdi>78%</bdi> מירידות כאלה המניה חזרה למחיר שלפני הירידה תוך <bdi>60</bdi> ימי מסחר, בממוצע אחרי <bdi>22</bdi> ימים.</span></p>
 <div class="tags">
 <div class="tag warnt"><b><bdi>48%</bdi></b><span>חזרו תוך <bdi>10</bdi> ימים</span></div>
 <div class="tag"><b><bdi>52</bdi></b><span>מקרים ב-<bdi>11.7</bdi> שנים</span></div>
 <div class="tag"><b><bdi>10</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+7%</bdi></b><span>עד היעד</span></div>
+<div class="tag key"><b><bdi>+3%</bdi></b><span>עד היעד</span></div>
 </div>
 <div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>10</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+1.7%</bdi>)</em></span><span class="pc"><bdi>75%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+3.4%</bdi>)</em></span><span class="pc"><bdi>54%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+5.1%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+6.9%</bdi>)</em></span><span class="pc"><bdi>48%</bdi></span></div>
+<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+0.7%</bdi>)</em></span><span class="pc"><bdi>75%</bdi></span></div>
+<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+1.4%</bdi>)</em></span><span class="pc"><bdi>54%</bdi></span></div>
+<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+2.1%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
+<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+2.7%</bdi>)</em></span><span class="pc"><bdi>48%</bdi></span></div>
 <div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>10</bdi> ימים, <bdi>94%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
 </div>
 <div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
-<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$30.00</bdi></span><span class="vd dn"><bdi>-6.8%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$22.92</bdi></span><span class="vd dn"><bdi>-28.8%</bdi></span></div>
-<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$21.46</bdi></span><span class="vd dn"><bdi>-33.3%</bdi></span></div>
-<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$36.23</bdi></span><span class="vd up"><bdi>+12.6%</bdi></span></div>
-<div class="bar"><i style="left:73%"></i></div><div class="barlab"><span><bdi>$36</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$21</bdi></span></div>
+<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$30.00</bdi></span><span class="vd dn"><bdi>-6.5%</bdi></span></div>
+<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$23.61</bdi></span><span class="vd dn"><bdi>-26.4%</bdi></span></div>
+<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$21.46</bdi></span><span class="vd dn"><bdi>-33.1%</bdi></span></div>
+<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$36.23</bdi></span><span class="vd up"><bdi>+13.0%</bdi></span></div>
+<div class="bar"><i style="left:72%"></i></div><div class="barlab"><span><bdi>$36</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$21</bdi></span></div>
 <div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
 </div>
 <div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$32.19</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$32.74</bdi></span><span class="pn"><bdi>+1.7%</bdi> · קרה ב-<bdi>75%</bdi> תוך <bdi>10 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$33.30</bdi></span><span class="pn"><bdi>+3.4%</bdi> · קרה ב-<bdi>54%</bdi> תוך <bdi>10 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$33.85</bdi></span><span class="pn"><bdi>+5.1%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>10 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$34.40</bdi></span><span class="pn"><bdi>+6.9%</bdi> · קרה ב-<bdi>48%</bdi> תוך <bdi>10 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$31.74</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>1.4%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$20.54</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-36.2%</bdi>)</span></div>
+<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$32.07</bdi></span><span class="pn">המחיר עכשיו</span></div>
+<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$32.29</bdi></span><span class="pn"><bdi>+0.7%</bdi> · קרה ב-<bdi>75%</bdi> תוך <bdi>10 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$32.51</bdi></span><span class="pn"><bdi>+1.4%</bdi> · קרה ב-<bdi>54%</bdi> תוך <bdi>10 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$32.73</bdi></span><span class="pn"><bdi>+2.1%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>10 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$32.95</bdi></span><span class="pn"><bdi>+2.7%</bdi> · קרה ב-<bdi>48%</bdi> תוך <bdi>10 ימים</bdi></span></div>
+<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$31.62</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>1.4%</bdi> לפני שהיא עולה</span></div>
+<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$20.46</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-36.2%</bdi>)</span></div>
 <div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>30</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
 <div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
 </div>
 <div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>52</bdi> פעמים ב-<bdi>11.7</bdi> השנים האחרונות. ב-<bdi>48%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>10</bdi> ימי מסחר, וב-<bdi>94%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$34.40</bdi> (<bdi>+7%</bdi>) תוך <bdi>10</bdi> ימי מסחר.</p></div>
+<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$32.95</bdi> (<bdi>+3%</bdi>) תוך <bdi>10</bdi> ימי מסחר.</p></div>
 <div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul>
-<li><a href="https://finnhub.io/api/news?id=15c2806a68e77ff0b84a244a0143dd32076a56ff937062561ad2e58c635c2416" target="_blank" rel="noopener noreferrer" title="UBS Sees PC Sales Shrinking Again in 2027. Dell and HP Investors Aren’t Happy">מניית דל ירדה לאחר ש-UBS שינה את תחזית מכירות המחשבים האישיים לשנת 2027 מצמיחה לירידה.<span class="ext"> ↗</span></a><span class="src"> — Yahoo, <bdi>23/09 22:08</bdi></span></li>
+<li><a href="https://finnhub.io/api/news?id=a21b738e39fff368ac074153b29c3d215f72346aacefc073d51897f280e27722" target="_blank" rel="noopener noreferrer" title="Tech Exec Says China Is About to Burst the Memory Chip Pricing Bubble">יו&quot;ר אייסר טען כי ספקיות שבבי הזיכרון משתמשות בתחזיות מחסור כדי להעלות מחירים באופן מלאכותי.<span class="ext"> ↗</span></a><span class="src"> — Yahoo, <bdi>24/09 17:44</bdi></span></li>
 </ul></div>
 <details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
-<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>52</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.14</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.51</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+10.0%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
-<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>29</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ יש מגמה חזקה</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>0.9x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ מסחר רגיל</div></div>
+<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>49</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
+<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.30</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
+<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.35</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
+<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+6.0%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
+<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>28</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ יש מגמה חזקה</div></div>
+<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>0.6x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ פחות מסחר מהרגיל</div></div>
 </div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>45%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-7% ביומיים האחרונים. לפני פתיחת המסחר היום המחיר כמעט ולא השתנה. זה אומר שכל הדרך למעלה, עלייה של 7%, עדיין לפנינו.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>ההיסטוריה מראה שרבע מהירידה חוזר ב-75% מהמקרים תוך עשרה ימים.</li><li>לעומת זאת, כל הירידה חוזרת רק ב-48% מהמקרים באותו זמן.</li><li>זה אומר שסביר שהיא תחזיר חלק מהר, אבל פחות סביר שתחזיר הכל.</li><li>אם מחכים חצי שנה, היא חוזרת למחיר המלא ב-94% מהמקרים.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 1.4% לפני שהיא מתחילה לעלות.</li><li>במקרה הכי גרוע בעבר היא המשיכה לרדת עוד 36%.</li><li>המחיר הנוכחי גבוה ב-29% מהמחיר הממוצע שלה בשנה האחרונה. יש לה הרבה מקום לרדת.</li></ul><b>רמת ביטחון: 45%</b><p>הורדתי מעט מהמספר ההיסטורי. זה קרה רק 52 פעמים, אז אין הרבה ניסיון להשוות אליו.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו חדשות טובות על מכירות מחשבים בעתיד, זה יכול לעזור למחיר לעלות.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
+<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>55%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-5% ביומיים האחרונים, אבל לפני פתיחת המסחר היום היא כבר עלתה ב-3%. זה אומר שהיא עשתה חצי מהדרך חזרה למחיר שהיה לה לפני הירידה, ונשאר לה לעלות רק עוד 3% כדי להגיע ליעד.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>ההיסטוריה מראה שב-75% מהמקרים המניה הצליחה להחזיר רבע מהירידה תוך 10 ימים, לעומת 48% בלבד שהחזירו את כל הירידה באותו זמן.</li><li>אם נותנים לה יותר זמן, ב-94% מהמקרים היא חזרה למחיר המלא תוך חצי שנה.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 1.4% לפני שהיא מתחילה לעלות.</li><li>זה קרה רק 52 פעמים ב-11.7 השנים האחרונות, אז אין הרבה ניסיון להשוות אליו.</li><li>המחיר הנוכחי עדיין גבוה ב-26.4% מהמחיר הממוצע שלה בשנה האחרונה, כך שיש לה עוד הרבה לאן לרדת למטה.</li></ul><b>רמת ביטחון: 55%</b><p>המספר ההיסטורי הוא 48%, אבל העליות החזקות לפני פתיחת המסחר מקצרות משמעותית את הדרך שנשארה ליעד.</p><b>מה יכול לשנות את התמונה</b><p>אם החדשות על מחירי שבבי הזיכרון ישפיעו לרעה על העלויות של החברה, זה עלול להקשות עליה לחזור למחיר.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
 </div>
-<div class="stock" data-fell="-4.3814" data-price="67.5000" data-recovered="44" data-days="7">
-<div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NASDAQ%3AAFRM" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>AFRM</bdi></span> <span class="cname">Affirm Holdings, Inc.</span><span class="ext"> ↗</span></a></span>
+<div class="stock" data-fell="-2.3501" data-price="538.8000" data-recovered="43" data-days="5">
+<div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3ADELL" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>DELL</bdi></span> <span class="cname">Dell Technologies Inc.</span><span class="ext"> ↗</span></a></span>
 <div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:00</bdi></span><span class="pv"><bdi>$67.50</bdi></span><span class="pc2 dn"><bdi>-0.9%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$68.09</bdi></span><span class="pc2 dn"><bdi>-4.4%</bdi></span></span>
+<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:14</bdi></span><span class="pv"><bdi>$538.80</bdi></span><span class="pc2 up"><bdi>+0.5%</bdi></span></span>
+<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$536.02</bdi></span><span class="pc2 dn"><bdi>-2.4%</bdi></span></span>
 </div>
-<p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.7% בממוצע ממנו, ולא פעם — ב-25% מהימים — הפער גדול מאחוז שלם.</p>
+<p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.6% בממוצע ממנו, ולא פעם — ב-22% מהימים — הפער גדול מאחוז שלם.</p>
 </div>
-<div class="meta"><span>פיננסים</span><span>שווי <bdi>$25 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>4%</bdi> ביומיים</p>
+<div class="meta"><span>טכנולוגיה</span><span>שווי <bdi>$340 מיליארד</bdi></span></div>
+<p class="fellline">ירדה <bdi>2%</bdi> ביומיים</p>
+<p class="cause yellow">🟡 סיבת הירידה: מעורב<span>המניה ירדה עקב מכירות של אנשי פנים ותחזית חלשה של UBS למכירות מחשבים אישיים בתעשייה.</span><span class="cm">בעבר, ב-<bdi>83%</bdi> מירידות כאלה המניה חזרה למחיר שלפני הירידה תוך <bdi>60</bdi> ימי מסחר, בממוצע אחרי <bdi>18</bdi> ימים.</span></p>
 <div class="tags">
-<div class="tag warnt"><b><bdi>44%</bdi></b><span>חזרו תוך <bdi>7</bdi> ימים</span></div>
-<div class="tag"><b><bdi>131</bdi></b><span>מקרים ב-<bdi>4.2</bdi> שנים</span></div>
-<div class="tag"><b><bdi>7</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+5%</bdi></b><span>עד היעד</span></div>
+<div class="tag warnt"><b><bdi>43%</bdi></b><span>חזרו תוך <bdi>5</bdi> ימים</span></div>
+<div class="tag"><b><bdi>67</bdi></b><span>מקרים ב-<bdi>8.8</bdi> שנים</span></div>
+<div class="tag"><b><bdi>5</bdi></b><span>ימי מסחר</span></div>
+<div class="tag key"><b><bdi>+2%</bdi></b><span>עד היעד</span></div>
 </div>
-<div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>7</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+1.4%</bdi>)</em></span><span class="pc"><bdi>68%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+2.7%</bdi>)</em></span><span class="pc"><bdi>59%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+4.1%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+5.5%</bdi>)</em></span><span class="pc"><bdi>44%</bdi></span></div>
-<div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>7</bdi> ימים, <bdi>84%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
+<div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>5</bdi> ימי מסחר</div>
+<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+0.5%</bdi>)</em></span><span class="pc"><bdi>66%</bdi></span></div>
+<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+0.9%</bdi>)</em></span><span class="pc"><bdi>48%</bdi></span></div>
+<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+1.4%</bdi>)</em></span><span class="pc"><bdi>42%</bdi></span></div>
+<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+1.9%</bdi>)</em></span><span class="pc"><bdi>43%</bdi></span></div>
+<div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>5</bdi> ימים, <bdi>87%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
 </div>
 <div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
-<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$65.00</bdi></span><span class="vd dn"><bdi>-3.7%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$66.13</bdi></span><span class="vd dn"><bdi>-2.0%</bdi></span></div>
-<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$66.03</bdi></span><span class="vd dn"><bdi>-2.2%</bdi></span></div>
-<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$90.44</bdi></span><span class="vd up"><bdi>+34.0%</bdi></span></div>
-<div class="bar"><i style="left:6%"></i></div><div class="barlab"><span><bdi>$90</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$66</bdi></span></div>
+<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$500.00</bdi></span><span class="vd dn"><bdi>-7.2%</bdi></span></div>
+<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$281.70</bdi></span><span class="vd dn"><bdi>-47.7%</bdi></span></div>
+<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$358.88</bdi></span><span class="vd dn"><bdi>-33.4%</bdi></span></div>
+<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$595.51</bdi></span><span class="vd up"><bdi>+10.5%</bdi></span></div>
+<div class="bar"><i style="left:76%"></i></div><div class="barlab"><span><bdi>$596</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$359</bdi></span></div>
 <div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
 </div>
 <div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$67.50</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$68.43</bdi></span><span class="pn"><bdi>+1.4%</bdi> · קרה ב-<bdi>68%</bdi> תוך <bdi>7 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$69.35</bdi></span><span class="pn"><bdi>+2.7%</bdi> · קרה ב-<bdi>59%</bdi> תוך <bdi>7 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$70.28</bdi></span><span class="pn"><bdi>+4.1%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>7 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$71.21</bdi></span><span class="pn"><bdi>+5.5%</bdi> · קרה ב-<bdi>44%</bdi> תוך <bdi>7 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$64.73</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>4.1%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$7.09</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-89.5%</bdi>)</span></div>
-<div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>21</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
+<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$538.80</bdi></span><span class="pn">המחיר עכשיו</span></div>
+<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$541.33</bdi></span><span class="pn"><bdi>+0.5%</bdi> · קרה ב-<bdi>66%</bdi> תוך <bdi>5 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$543.86</bdi></span><span class="pn"><bdi>+0.9%</bdi> · קרה ב-<bdi>48%</bdi> תוך <bdi>5 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$546.39</bdi></span><span class="pn"><bdi>+1.4%</bdi> · קרה ב-<bdi>42%</bdi> תוך <bdi>5 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$548.92</bdi></span><span class="pn"><bdi>+1.9%</bdi> · קרה ב-<bdi>43%</bdi> תוך <bdi>5 ימים</bdi></span></div>
+<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$536.11</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>0.5%</bdi> לפני שהיא עולה</span></div>
+<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$311.43</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-42.2%</bdi>)</span></div>
+<div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>15</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
 <div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
 </div>
-<div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>131</bdi> פעמים ב-<bdi>4.2</bdi> השנים האחרונות. ב-<bdi>44%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>7</bdi> ימי מסחר, וב-<bdi>84%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$71.21</bdi> (<bdi>+5%</bdi>) תוך <bdi>7</bdi> ימי מסחר.</p></div>
-<p class="warn">שימו לב: ב-<bdi>16%</bdi> מהמקרים היא לא חזרה כלל, גם לא תוך חצי שנה.</p>
+<div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>67</bdi> פעמים ב-<bdi>8.8</bdi> השנים האחרונות. ב-<bdi>43%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>5</bdi> ימי מסחר, וב-<bdi>87%</bdi> היא חזרה בתוך חצי שנה.</p></div>
+<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$548.92</bdi> (<bdi>+2%</bdi>) תוך <bdi>5</bdi> ימי מסחר.</p></div>
 <div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul><li>לא מצאנו בחדשות הסבר לירידה. <span class="src">הכתבות שפורסמו עסקו במחיר עצמו או בדעות אנליסטים.</span></li></ul></div>
 <details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
-<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>40</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.23</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv pos"><bdi>0.14</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ בתחתית הטווח — נמוך ביחס לעצמו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv neg"><bdi>-8.5%</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מתחת לממוצע של החודשיים האחרונים</div></div>
-<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>10</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>1.0x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ מסחר רגיל</div></div>
+<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>54</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
+<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-1.71</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
+<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.56</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
+<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+13.5%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
+<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>22</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
+<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>0.7x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ מסחר רגיל</div></div>
 </div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>40%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-4% ביומיים האחרונים. לפני פתיחת המסחר היא יורדת בעוד כאחוז אחד. זה אומר שהדרך חזרה למחיר המקורי התארכה. עכשיו נדרשת עלייה של 5.5% כדי להגיע ליעד.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>זה קרה לה 131 פעמים ב-4 השנים האחרונות.</li><li>ב-68% מהמקרים היא החזירה רבע מהירידה תוך 7 ימים.</li><li>רק ב-44% מהמקרים היא החזירה את כל הירידה בזמן הזה.</li><li>לכן סביר יותר שהיא תחזיר רק חלק מהירידה מהר.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 4.1% לפני שהיא מתחילה לעלות.</li><li>המחיר עכשיו נמצא רק 2% מעל המחיר הממוצע שלה בשנה האחרונה.</li><li>זה אומר שכמעט ולא נשאר לה מרווח ביטחון למטה.</li></ul><b>רמת ביטחון: 40%</b><p>הורדתי מעט מהמספר ההיסטורי של 44%, כי הירידה לפני הפתיחה מרחיקה אותה מהיעד.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו פתאום חדשות רעות על החברה, הירידה עלולה להחריף הרבה מעבר לרגיל.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
+<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>48%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-2% ביומיים האחרונים. לפני פתיחת המסחר היום היא כבר עלתה בחצי אחוז. זה אומר שרבע מהדרך חזרה למחיר הקודם כבר נעשתה.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>בלי הגבלת זמן, ב-87% מהמקרים היא חזרה למחיר המלא.</li><li>בתוך 5 ימים, יש סיכוי של 66% שתחזיר רבע מהירידה.</li><li>הסיכוי שתחזיר את כל הירידה ב-5 ימים הוא רק 43%, אז סביר יותר שתחזיר רק חלק.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 0.5% לפני שהיא מתחילה לעלות.</li><li>זה קרה לה רק 67 פעמים ב-9 השנים האחרונות, אז אין הרבה ניסיון להשוות אליו.</li><li>המחיר הנוכחי עדיין גבוה מאוד מהמחיר הממוצע שלה בשנה האחרונה.</li></ul><b>רמת ביטחון: 48%</b><p>העליתי מעט את המספר ההיסטורי כי המניה כבר עשתה רבע מהדרך למעלה לפני פתיחת המסחר.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו חדשות רעות על החברה, המניה עלולה להמשיך לרדת.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
 </div>
-<div class="stock" data-fell="-4.3555" data-price="43.2400" data-recovered="42" data-days="8">
+<div class="stock" data-fell="-0.7306" data-price="43.2500" data-recovered="42" data-days="8">
 <div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3AGOLD" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>GOLD</bdi></span> <span class="cname">Gold.com, Inc.</span><span class="ext"> ↗</span></a></span>
 <div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>08:39</bdi></span><span class="pv"><bdi>$43.24</bdi></span><span class="pc2 dn"><bdi>-0.6%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$43.48</bdi></span><span class="pc2 dn"><bdi>-4.4%</bdi></span></span>
+<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>09:00</bdi></span><span class="pv"><bdi>$43.25</bdi></span><span class="pc2 dn"><bdi>-0.5%</bdi></span></span>
+<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$43.48</bdi></span><span class="pc2 dn"><bdi>-0.7%</bdi></span></span>
 </div>
 <p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.7% בממוצע ממנו, ולא פעם — ב-29% מהימים — הפער גדול מאחוז שלם.</p>
 </div>
 <div class="meta"><span>פיננסים</span><span>שווי <bdi>$1 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>4%</bdi> ביומיים</p>
+<p class="fellline">ירדה <bdi>1%</bdi> ביומיים</p>
+<p class="again">🔁 יום <bdi>2</bdi> ברשימה — לא איתות חדש<span>הופיעה לראשונה ב-<bdi>23/09</bdi> במחיר <bdi>$43.48</bdi>, ומאז כמעט ללא שינוי <bdi>0.0%</bdi>. היעד נמדד עדיין מהמחיר הראשון. בבדיקה על <bdi>12,588</bdi> מקרים בעבר, יום שני ואילך לא היה כניסה גרועה יותר מהיום הראשון.</span></p>
+<p class="cause yellow">🟡 סיבת הירידה: מעורב<span>החברה חוותה חילופי סמנכ&quot;ל כספים ומכירת מניות על ידי דירקטור, במקביל לחולשה כללית במחירי הזהב.</span><span class="cm">בעבר, ב-<bdi>83%</bdi> מירידות כאלה המניה חזרה למחיר שלפני הירידה תוך <bdi>60</bdi> ימי מסחר, בממוצע אחרי <bdi>18</bdi> ימים.</span></p>
 <div class="tags">
 <div class="tag warnt"><b><bdi>42%</bdi></b><span>חזרו תוך <bdi>8</bdi> ימים</span></div>
 <div class="tag"><b><bdi>179</bdi></b><span>מקרים ב-<bdi>10.4</bdi> שנים</span></div>
 <div class="tag"><b><bdi>8</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+5%</bdi></b><span>עד היעד</span></div>
+<div class="tag key"><b><bdi>+1%</bdi></b><span>עד היעד</span></div>
 </div>
 <div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>8</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+1.3%</bdi>)</em></span><span class="pc"><bdi>68%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+2.6%</bdi>)</em></span><span class="pc"><bdi>57%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+3.9%</bdi>)</em></span><span class="pc"><bdi>52%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+5.1%</bdi>)</em></span><span class="pc"><bdi>42%</bdi></span></div>
+<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+0.3%</bdi>)</em></span><span class="pc"><bdi>68%</bdi></span></div>
+<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+0.6%</bdi>)</em></span><span class="pc"><bdi>57%</bdi></span></div>
+<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+1.0%</bdi>)</em></span><span class="pc"><bdi>52%</bdi></span></div>
+<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+1.3%</bdi>)</em></span><span class="pc"><bdi>42%</bdi></span></div>
 <div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>8</bdi> ימים, <bdi>83%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
 </div>
 <div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
 <div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$40.00</bdi></span><span class="vd dn"><bdi>-7.5%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$42.42</bdi></span><span class="vd dn"><bdi>-1.9%</bdi></span></div>
+<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$42.50</bdi></span><span class="vd dn"><bdi>-1.7%</bdi></span></div>
 <div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$36.08</bdi></span><span class="vd dn"><bdi>-16.6%</bdi></span></div>
 <div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$48.83</bdi></span><span class="vd up"><bdi>+12.9%</bdi></span></div>
 <div class="bar"><i style="left:56%"></i></div><div class="barlab"><span><bdi>$49</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$36</bdi></span></div>
 <div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
 </div>
 <div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$43.24</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$43.79</bdi></span><span class="pn"><bdi>+1.3%</bdi> · קרה ב-<bdi>68%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$44.35</bdi></span><span class="pn"><bdi>+2.6%</bdi> · קרה ב-<bdi>57%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$44.90</bdi></span><span class="pn"><bdi>+3.9%</bdi> · קרה ב-<bdi>52%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$45.46</bdi></span><span class="pn"><bdi>+5.1%</bdi> · קרה ב-<bdi>42%</bdi> תוך <bdi>8 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$42.25</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>2.3%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$23.09</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-46.6%</bdi>)</span></div>
+<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$43.25</bdi></span><span class="pn">המחיר עכשיו</span></div>
+<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$43.39</bdi></span><span class="pn"><bdi>+0.3%</bdi> · קרה ב-<bdi>68%</bdi> תוך <bdi>8 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$43.52</bdi></span><span class="pn"><bdi>+0.6%</bdi> · קרה ב-<bdi>57%</bdi> תוך <bdi>8 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$43.66</bdi></span><span class="pn"><bdi>+1.0%</bdi> · קרה ב-<bdi>52%</bdi> תוך <bdi>8 ימים</bdi></span></div>
+<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$43.80</bdi></span><span class="pn"><bdi>+1.3%</bdi> · קרה ב-<bdi>42%</bdi> תוך <bdi>8 ימים</bdi></span></div>
+<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$42.26</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>2.3%</bdi> לפני שהיא עולה</span></div>
+<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$23.10</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-46.6%</bdi>)</span></div>
 <div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>24</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
 <div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
 </div>
 <div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>179</bdi> פעמים ב-<bdi>10.4</bdi> השנים האחרונות. ב-<bdi>42%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>8</bdi> ימי מסחר, וב-<bdi>83%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$45.46</bdi> (<bdi>+5%</bdi>) תוך <bdi>8</bdi> ימי מסחר.</p></div>
+<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$43.80</bdi> (<bdi>+1%</bdi>) תוך <bdi>8</bdi> ימי מסחר.</p></div>
 <p class="warn">שימו לב: ב-<bdi>17%</bdi> מהמקרים היא לא חזרה כלל, גם לא תוך חצי שנה.</p>
 <div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul><li>לא מצאנו בחדשות הסבר לירידה. <span class="src">הכתבות שפורסמו עסקו במחיר עצמו או בדעות אנליסטים.</span></li></ul></div>
 <details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
 <div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>47</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.30</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.31</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+2.2%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
+<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv neg"><bdi>-0.38</bdi></span><span class="ivd neg">מצביע על ירידה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה נוטה כלפי מטה</div></div>
+<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.32</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
+<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+1.9%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
 <div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>12</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>0.5x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ פחות מסחר מהרגיל</div></div>
+<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>0.4x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ פחות מסחר מהרגיל</div></div>
 </div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>38%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-4% ביומיים האחרונים. לפני פתיחת המסחר היום היא ירדה בעוד 0.6%. זה אומר שהדרך חזרה התארכה, ועכשיו נדרשת עלייה של 5% כדי לחזור למחיר הקודם.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>יש לנו היסטוריה ארוכה לבדוק. זה קרה לה 179 פעמים ב-10 השנים האחרונות.</li><li>היא מצליחה להחזיר רבע מהירידה ב-68% מהמקרים תוך 8 ימים.</li><li>את כל הירידה היא מחזירה רק ב-42% מהמקרים באותו זמן. כלומר, סביר שתחזיר חלק, אבל פחות סביר שתחזיר הכל מהר.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 2.3% לפני שהיא מתחילה לעלות.</li><li>המחיר הנוכחי נמצא רק 1.9% מעל המחיר הממוצע שלה בשנה האחרונה.</li><li>זה אומר שכמעט ולא נשאר לה מרווח ביטחון מעל המחיר הזה.</li></ul><b>רמת ביטחון: 38%</b><p>הורדתי מעט מהמספר ההיסטורי של 42% כי הירידה הבוקר מרחיקה אותה מהיעד.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו פתאום חדשות שיסבירו למה המניה יורדת, המצב יכול להשתנות.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
-</div>
-<div class="stock" data-fell="-2.2079" data-price="90.5100" data-recovered="44" data-days="6">
-<div class="top"><span><a class="tklink" href="https://www.tradingview.com/chart/23E7Lxvg/?symbol=NYSE%3ABBY" target="_blank" rel="noopener noreferrer" title="פתיחת גרף ב-TradingView"><span class="tk"><bdi>BBY</bdi></span> <span class="cname">Best Buy Co., Inc.</span><span class="ext"> ↗</span></a></span>
-<div class="ptags">
-<span class="ptag live"><span class="pl">לפני הפתיחה <bdi>08:03</bdi></span><span class="pv"><bdi>$90.51</bdi></span><span class="pc2 dn"><bdi>-0.3%</bdi></span></span>
-<span class="ptag"><span class="pl">מחיר סגירה</span><span class="pv"><bdi>$90.80</bdi></span><span class="pc2 dn"><bdi>-2.2%</bdi></span></span>
-</div>
-<p class="softrel">המחיר הזה משוער. המניה נפתחת בפער של 0.6% בממוצע ממנו, ולא פעם — ב-24% מהימים — הפער גדול מאחוז שלם.</p>
-</div>
-<div class="meta"><span>צריכה מחזורית</span><span>שווי <bdi>$20 מיליארד</bdi></span></div>
-<p class="fellline">ירדה <bdi>2%</bdi> ביומיים</p>
-<div class="tags">
-<div class="tag warnt"><b><bdi>44%</bdi></b><span>חזרו תוך <bdi>6</bdi> ימים</span></div>
-<div class="tag"><b><bdi>105</bdi></b><span>מקרים ב-<bdi>11.5</bdi> שנים</span></div>
-<div class="tag"><b><bdi>6</bdi></b><span>ימי מסחר</span></div>
-<div class="tag key"><b><bdi>+3%</bdi></b><span>עד היעד</span></div>
-</div>
-<div class="ladder"><div class="lh">כמה מהירידה חזר תוך <bdi>6</bdi> ימי מסחר</div>
-<div class="lrow"><span class="what">רבע מהירידה <em>(<bdi>+0.6%</bdi>)</em></span><span class="pc"><bdi>74%</bdi></span></div>
-<div class="lrow"><span class="what">חצי מהירידה <em>(<bdi>+1.3%</bdi>)</em></span><span class="pc"><bdi>64%</bdi></span></div>
-<div class="lrow"><span class="what">שלושה רבעים <em>(<bdi>+1.9%</bdi>)</em></span><span class="pc"><bdi>50%</bdi></span></div>
-<div class="lrow full"><span class="what">כל הירידה <em>(<bdi>+2.6%</bdi>)</em></span><span class="pc"><bdi>44%</bdi></span></div>
-<div class="lvnote">בסופו של דבר היא כן חוזרת בדרך כלל: אם נותנים לזה חצי שנה במקום <bdi>6</bdi> ימים, <bdi>87%</bdi> מהמקרים חזרו למחיר המלא. הטבלה מראה את החלון הקצר, כי זו מגבלת הזמן שאנחנו מפרסמים.</div>
-</div>
-<div class="levels"><div class="lh">איפה המחיר עומד עכשיו</div>
-<div class="vrow"><span class="vl">מספר עגול מתחת</span><span class="vp"><bdi>$90.00</bdi></span><span class="vd dn"><bdi>-0.6%</bdi></span></div>
-<div class="vrow"><span class="vl">המחיר הממוצע בשנה האחרונה</span><span class="vp"><bdi>$70.37</bdi></span><span class="vd dn"><bdi>-22.3%</bdi></span></div>
-<div class="vrow"><span class="vl">הנמוך של 3 החודשים</span><span class="vp"><bdi>$73.97</bdi></span><span class="vd dn"><bdi>-18.3%</bdi></span></div>
-<div class="vrow"><span class="vl">הגבוה של 3 החודשים</span><span class="vp"><bdi>$96.53</bdi></span><span class="vd up"><bdi>+6.7%</bdi></span></div>
-<div class="bar"><i style="left:73%"></i></div><div class="barlab"><span><bdi>$97</bdi></span><span>המיקום בטווח 3 חודשים</span><span><bdi>$74</bdi></span></div>
-<div class="lvnote">בדקנו: מניה נעצרת ליד המספרים האלה בערך כמו ליד כל מחיר אחר. זה מראה איפה המחיר נמצא, לא לאן הוא הולך.</div>
-</div>
-<div class="plan"><div class="ph">איך זה נראה כפוזיציה</div>
-<div class="prow entry"><span class="pk">כניסה</span><span class="pv2"><bdi>$90.51</bdi></span><span class="pn">המחיר עכשיו</span></div>
-<div class="prow tgt"><span class="pk">יעד ראשון</span><span class="pv2"><bdi>$91.09</bdi></span><span class="pn"><bdi>+0.6%</bdi> · קרה ב-<bdi>74%</bdi> תוך <bdi>6 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שני</span><span class="pv2"><bdi>$91.68</bdi></span><span class="pn"><bdi>+1.3%</bdi> · קרה ב-<bdi>64%</bdi> תוך <bdi>6 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד שלישי</span><span class="pv2"><bdi>$92.26</bdi></span><span class="pn"><bdi>+1.9%</bdi> · קרה ב-<bdi>50%</bdi> תוך <bdi>6 ימים</bdi></span></div>
-<div class="prow tgt"><span class="pk">יעד מלא</span><span class="pv2"><bdi>$92.85</bdi></span><span class="pn"><bdi>+2.6%</bdi> · קרה ב-<bdi>44%</bdi> תוך <bdi>6 ימים</bdi></span></div>
-<div class="prow risk"><span class="pk">ירידה נוספת</span><span class="pv2"><bdi>$89.88</bdi></span><span class="pn">בדרך כלל יורדת עוד <bdi>0.7%</bdi> לפני שהיא עולה</span></div>
-<div class="prow risk"><span class="pk">המקרה הגרוע</span><span class="pv2"><bdi>$51.86</bdi></span><span class="pn">הירידה הכי גדולה שהייתה אחרי מצב כזה (<bdi>-42.7%</bdi>)</span></div>
-<div class="prow"><span class="pk">מגבלת זמן</span><span class="pv2"><bdi>18</bdi> ימים</span><span class="pn">אם לא חזרה עד אז, הדפוס ההיסטורי לא חזר על עצמו</span></div>
-<div class="pnote"><b>אין כאן סטופ־לוס במחיר, וזה בכוונה.</b> בדקנו: סטופ־לוס סגר ‎55%‎ מהעסקאות, ומתוכן ‎55%‎ היו מסתיימות ברווח אם לא היו נסגרות. הוא גם הפך את ההפסד הגרוע ביותר לגדול פי ‎3‎. מגבלת זמן פוגעת פחות, כי היא לא מוכרת דווקא כשהמחיר נמוך.</div>
-</div>
-<div class="block past"><span class="lbl">מה קרה בעבר</span><p>המצב הזה קרה למניה <bdi>105</bdi> פעמים ב-<bdi>11.5</bdi> השנים האחרונות. ב-<bdi>44%</bdi> מהם היא חזרה למחיר שלפני הירידה תוך <bdi>6</bdi> ימי מסחר, וב-<bdi>87%</bdi> היא חזרה בתוך חצי שנה.</p></div>
-<div class="block expect"><span class="lbl">מה אנחנו מצפים</span><p>חזרה ל-<bdi>$92.85</bdi> (<bdi>+3%</bdi>) תוך <bdi>6</bdi> ימי מסחר.</p></div>
-<div class="news"><span class="lbl">מה קרה לפי החדשות</span><ul><li>לא מצאנו בחדשות הסבר לירידה. <span class="src">הכתבות שפורסמו עסקו במחיר עצמו או בדעות אנליסטים.</span></li></ul></div>
-<details class="ai ind"><summary><span>📐 אינדיקטורים נפוצים</span></summary><div class="aibody"><div class="indgrid">
-<div class="irow2"><div class="ih"><span class="il">RSI</span><span class="iv neu"><bdi>55</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד אם המניה נמכרה או נקנתה יותר מדי בזמן האחרון. מתחת ל-30 נחשב מכירת יתר, מעל 70 קניית יתר.</div><div class="im2">➜ באמצע. לא מכירת יתר ולא קניית יתר</div></div>
-<div class="irow2"><div class="ih"><span class="il">MACD</span><span class="iv pos"><bdi>+0.33</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה בין הממוצע הקצר לממוצע הארוך של המחיר, כדי לראות לאן המגמה נוטה עכשיו.</div><div class="im2">➜ המגמה הקצרה מתחזקת כלפי מעלה</div></div>
-<div class="irow2"><div class="ih"><span class="il">רצועות בולינגר</span><span class="iv neu"><bdi>0.66</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מראה איפה המחיר נמצא ביחס לטווח התנועה הרגיל שלו. ‎0‎ זה תחתית הטווח, ‎1‎ זה הראש.</div><div class="im2">➜ באמצע הטווח הרגיל שלו</div></div>
-<div class="irow2"><div class="ih"><span class="il">מול ממוצע 50 יום</span><span class="iv pos"><bdi>+5.5%</bdi></span><span class="ivd pos">מצביע על עלייה</span></div><div class="iw">משווה את המחיר היום לממוצע שלו בחודשיים האחרונים.</div><div class="im2">➜ מעל הממוצע של החודשיים האחרונים</div></div>
-<div class="irow2"><div class="ih"><span class="il">עוצמת מגמה (ADX)</span><span class="iv neu"><bdi>19</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">מודד כמה חזקה המגמה, בלי להגיד לאיזה כיוון. מעל ‎25‎ נחשב מגמה ברורה.</div><div class="im2">➜ אין מגמה ברורה, המחיר מדשדש</div></div>
-<div class="irow2"><div class="ih"><span class="il">מחזור מסחר</span><span class="iv neu"><bdi>1.1x</bdi></span><span class="ivd neu">ניטרלי</span></div><div class="iw">כמה מניות נסחרו היום לעומת הרגיל. מחזור גבוה אומר שהרבה אנשים פעלו, לטוב או לרע.</div><div class="im2">➜ מסחר רגיל</div></div>
-</div><p class="aidisc">בדקנו את האינדיקטורים האלה על ‎61,907‎ ימי מסחר. אף אחד מהם לא ניבא מה יקרה אחר כך. הם מופיעים כאן כי הרבה סוחרים עוקבים אחריהם, ולא כי הם עובדים.</p></div></details>
-<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>40%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה ב-2% ביומיים האחרונים. לפני פתיחת המסחר היא ירדה עוד קצת. זה אומר שהדרך חזרה התארכה, ועכשיו היא צריכה לעלות 3% כדי לחזור למחיר.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>יש לנו היסטוריה ארוכה. זה קרה לה 105 פעמים ב-11.5 השנים האחרונות.</li><li>היא טובה בלחזור לחצי מהירידה. זה קרה ב-64% מהמקרים תוך 6 ימים.</li><li>אבל לחזור לכל המחיר קשה לה יותר. זה קרה רק ב-44% מהמקרים באותו זמן.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 0.7% לפני שהיא מתחילה לעלות.</li><li>המחיר שלה עכשיו רחוק מאוד מהמחיר הממוצע שלה בשנה האחרונה.</li><li>היא נמצאת 22% מעל הממוצע הזה, אז יש לה הרבה לאן לרדת.</li></ul><b>רמת ביטחון: 40%</b><p>הורדתי קצת מהמספר ההיסטורי כי הירידה לפני הפתיחה מגדילה את המרחק למטרה.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו פתאום חדשות רעות על החברה, זה יכול להקשות עליה לעלות.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
+<details class="ai"><summary><span>🤖 ניתוח מפורט — רמת ביטחון <span class="conf"><bdi>38%</bdi></span></span></summary><div class="aibody"><b>מה קורה כאן</b><p>המניה ירדה באחוז אחד ביומיים האחרונים. לפני פתיחת המסחר היום היא ירדה עוד חצי אחוז. זה אומר שהדרך חזרה למחיר המקורי התארכה, ועכשיו היא צריכה לעלות יותר.</p><b>למה יש סיכוי טוב שהיא תחזור</b><ul><li>זה קרה לה 179 פעמים בעשר השנים האחרונות, אז יש הרבה ניסיון.</li><li>ב-68% מהמקרים היא החזירה רבע מהירידה תוך 8 ימים.</li><li>לעומת זאת, רק ב-42% מהמקרים היא החזירה את כל הירידה באותו זמן.</li></ul><b>למה כדאי להיזהר</b><ul><li>בדרך כלל היא ממשיכה לרדת עוד 2.3% לפני שהיא מתחילה לעלות.</li><li>המחיר עכשיו קרוב מאוד למחיר הממוצע שלה בשנה האחרונה.</li><li>המרחק לממוצע הוא פחות משני אחוזים, אז כמעט אין כרית ביטחון.</li></ul><b>רמת ביטחון: 38%</b><p>הורדתי מעט את המספר ההיסטורי כי הירידה הבוקר מגדילה את המרחק שהמניה צריכה לעלות.</p><b>מה יכול לשנות את התמונה</b><p>אם יתפרסמו פתאום חדשות אמיתיות על החברה, זה יכול לשנות את כיוון המחיר.</p><p class="aidisc">הניתוח נוצר על ידי בינה מלאכותית ועשוי להכיל טעויות. אין בו המלצה לקנות או למכור, והוא מוצג למטרות לימוד בלבד.</p></div></details>
 </div>
 </div>
 <a class="accuracy" href="./results.html">
-<span class="acc-t">📊 כמה דייקנו עד היום?<span class="acc-sub"><bdi>5</bdi> מתוך <bdi>5</bdi> תחזיות התממשו</span></span><span class="acc-num"><bdi>100%</bdi></span>
+<span class="acc-t">📊 כמה דייקנו עד היום?<span class="acc-sub"><bdi>8</bdi> מתוך <bdi>8</bdi> תחזיות התממשו</span></span><span class="acc-num"><bdi>100%</bdi></span>
 </a>
-<div class="nextup">🕒 העדכון הבא: <b>יום שישי, 25 בספטמבר, 16:00</b> (שעון ישראל)</div>
+<div class="nextup">🕒 העדכון הבא: <b>יום שבת, 26 בספטמבר, 16:00</b> (שעון ישראל)</div>
 <footer><span>הרשימה מתעדכנת בכל בוקר מסחר, כחצי שעה לפני פתיחת הבורסה בארה״ב.</span><span><a href="./matrix.html">כל מניה מול כל יעד — מה היה יוצא מזה</a></span></footer>
 </div>
 <script>
